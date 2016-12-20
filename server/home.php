@@ -7,7 +7,8 @@
 	ob_start();
 
     /**
-   * Create a session or resume the current one based on a session identifier passed via GET or POST request or passed via cookie. 
+   * Create a session or resume the current one based on a session identifier 
+   * passed via GET or POST request or passed via cookie. 
    */
 	session_start();
 
@@ -22,7 +23,7 @@
 		header("Location: index.php");
 		exit;
 	}
-	
+
   /** @var Get logged in users details from MySQL user table  */
 	$res=mysql_query("SELECT * FROM user WHERE user_id=".$_SESSION['user']);
 
@@ -35,30 +36,67 @@
 
   <body ng-app="phoMart">
   
-  <!-- Include the main site nav template -->
-  <?php include('templates/nav.php') ?>
+    <!-- Include the main site nav template -->
+    <?php include('templates/nav.php') ?>
 
   	<div id="wrapper">
 
     	<div class="container">
         
-      	<div class="page-header">
+      	<div class="page-header text-center">
 
-      	 <h3>Welcome to my store!</h3>
+      	 <h3>Now Available</h3>
 
       	</div>
           
         <div class="row">
 
           <!-- Wire up Angular phoMart module -->
-          <div class="col-lg-12" ng-controller="HomeController" >
-            <h1>Templates should go here.</h1>
-          </div>
+          <div ng-controller="HomeController" >
 
-        </div>
+            <div class="container">
+
+              <div ng-repeat="product in products">
+
+                <div class="clearfix" ng-if="$index % 3 == 0"></div>
+
+                <div class="col-sm-4">
+
+                  <div class="row">
+                    <div class="center-block" >
+                      <img class="img-responsive" src="{{ product.image_0 }}" alt="Product image" />
+                    </div>
+                  </div>
+                    
+                  <div class="row">
+
+                    <div class="col-sm-5">
+
+                      <strong>{{ product.name }}</strong>
+
+                    </div>
+
+                    <div class="col-sm-7">
+
+                      <h5 class="pull-left">{{ product.price | currency:'€' }}</h5>
+                      <button type="button" class="btn btn-default pull-right" ng-click="addToCart(product)">Add to Cart</button>
+
+                    </div>
+                      
+                  </div>
+
+                </div>
+                  
+              </div>
+
+            </div>
+
+          </div>
         
+        </div>
+
       </div>
-      
+        
     </div>
     
     <!-- Include the main site scripts template (script sources)-->

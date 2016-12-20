@@ -1,5 +1,5 @@
  <!-- Set up responsive navbar -->
-  	<nav class="navbar navbar-default navbar-fixed-top">
+  	<nav class="navbar navbar-default navbar-fixed-top" ng-controller="NavController">
 
       <div class="container">
 
@@ -14,7 +14,7 @@
 
           </button>
 
-          <a class="navbar-brand" href="">phoMart</a>
+          <a class="navbar-brand" href="home.php">phoMart</a>
 
         </div>
 
@@ -31,18 +31,26 @@
           </ul>
 
           <ul class="nav navbar-nav navbar-right">
-
+            <li>
+                <!-- <button class="btn btn-success"><span class="glyphicon glyphicon-shopping-cart"></span> <span ng-model="cart" class="items">{{cart.quantity}}</span></button> -->
+            </li>
             <li class="dropdown">
 
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-            
-            <!-- Extract the username from the fetched result row, and display-->
-			       <span class="glyphicon glyphicon-user"></span>&nbsp;Hi <?php echo $userRow['username']; ?>&nbsp;<span class="caret"></span>
-             </a>
+
+                <span ng-hide="cartEmpty">
+                  <span class="glyphicon glyphicon-shopping-cart"></span>
+                  <span ng-model="cart" class="items">&nbsp;({{cart.quantity}})&nbsp;</span>
+                </span>
+
+                <!-- Extract the username from the fetched result row, and display-->
+    			       <span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;Hi <?php echo $userRow['username']; ?>&nbsp;<span class="caret"></span>
+               </a>
 
               <ul class="dropdown-menu">
-                <li>
-                  <a href="cart.php"><span class="glyphicon glyphicon-shopping-cart"></span>&nbsp;Cart</a>
+                <li ng-model="cart">
+                  <a href="cart.php"><span class="glyphicon glyphicon-shopping-cart"></span>
+                  &nbsp;Cart({{cart.quantity}})</a>
                 </li>
                 <li>
                   <a href="checkout.php"><span class="glyphicon glyphicon-euro"></span>&nbsp;Checkout</a>

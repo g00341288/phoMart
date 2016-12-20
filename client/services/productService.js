@@ -5,9 +5,14 @@
  * @return {object} Object comprising key/value pairs representing service methods
  * for making requests against the phoMart database
  */
-function phoMartQueryService($http){
+function phoMartProductQueryService($http){
 
-
+  /**
+   * Create a record in the product table of the wad database
+   * @param  {[type]} baseUrl [description]
+   * @param  {[type]} params  [description]
+   * @return {[type]}         [description]
+   */
   function createRecord(baseUrl, params){
 
     return $http.post(baseUrl, params).then(function(res, status, headers, config){  
@@ -19,6 +24,12 @@ function phoMartQueryService($http){
       });
   }
 
+  /**
+   * Retrieve a record from the product table of the wad database
+   * @param  {[type]} baseUrl [description]
+   * @param  {[type]} params  [description]
+   * @return {[type]}         [description]
+   */
   function retrieveRecord(baseUrl, params) {
     return $http.get(baseUrl, params).then(function(res, status, headers, config){
       return res;
@@ -28,6 +39,12 @@ function phoMartQueryService($http){
     });
   }
 
+  /**
+   * Update a record in the product table of the wad database
+   * @param  {[type]} baseUrl [description]
+   * @param  {[type]} params  [description]
+   * @return {[type]}         [description]
+   */
   function updateRecord(baseUrl, params){
 
     return $http.put(baseUrl, params).then(function(res, status, headers, config){  
@@ -40,7 +57,12 @@ function phoMartQueryService($http){
 
   }
 
-
+  /**
+   * Delete a record in the product table of the wad database
+   * @param  {[type]} baseUrl [description]
+   * @param  {[type]} params  [description]
+   * @return {[type]}         [description]
+   */
   function deleteRecord(baseUrl, params){
    return $http.delete(baseUrl, params).then(function(res, status, headers, config){  
      return res;
@@ -56,14 +78,14 @@ function phoMartQueryService($http){
    * 
    * This object will be available elsewhere in the application by this name: 
    *
-   * PhoMartQueryService
+   * ProductService
    * 
    * and the relevant methods will be called as follows:
    * 
-   * PhoMartQueryService.create(baseUrl, params)
-   * PhoMartQueryService.retrieve(baseUrl, params)
-   * PhoMartQueryService.update(baseUrl, params)
-   * PhoMartQueryService.delete(baseUrl, params)
+   * ProductService.create(baseUrl, params)
+   * ProductService.retrieve(baseUrl, params)
+   * ProductService.update(baseUrl, params)
+   * ProductService.delete(baseUrl, params)
    *
    */
   return {
@@ -75,5 +97,5 @@ function phoMartQueryService($http){
   }
 }
 
-/** Register PhoMartQueryService with the services submodule of the phoMart module */
-angular.module('phoMart.services').service('PhoMartQueryService', phoMartQueryService);
+/** Register ProductService with the services submodule of the phoMart module */
+angular.module('phoMart.services').service('ProductService', phoMartProductQueryService);

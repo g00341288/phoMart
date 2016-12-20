@@ -11,7 +11,12 @@
   <script src="assets/js/bootstrap.min.js"></script>
   <script src="../bower_components/angular/angular.js"></script>
   <script src="../client/app.js"></script>
+  <script src="../bower_components/angular-cookies/angular-cookies.js"></script>
   <script src="../client/services.js"></script>
   <script src="../client/controllers.js"></script>
-  <script src="../client/phoMartServices.js"></script>
+  <script src="../client/controllers/homeController.js"></script>
+  <script src="../client/controllers/navController.js"></script>
+  <script src="../client/controllers/cartController.js"></script>
+  <script src="../client/services/productService.js"></script>
+  <script src="../client/services/sessionService.js"></script>
   </head>

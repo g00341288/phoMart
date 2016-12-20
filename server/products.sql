@@ -8,7 +8,7 @@ INSERT INTO product(additional_features, os, ui, availability, battery_standbyti
 	connectivity_cell, connectivity_gps, connectivity_infrared, connectivity_wifi, description, 
 	display_resolution, display_size, display_touchscreen, hardware_accelerometer, hardware_audiojack,
 	hardware_cpu, hardware_fmradio, hardware_physicalkeyboard, hardware_usb, image_0, image_1, image_2,
-	image_3, image_4, name, dimensions_w, dimensions_h, dimensions_l, weight_grams, storage_flash,
+	image_3, image_4, name, price, dimensions_w, dimensions_h, dimensions_l, weight_grams, storage_flash,
 	storage_ram, added)
 VALUES(
 	"Front-facing 1.3MP camera", 
@@ -26,10 +26,10 @@ VALUES(
 	true, 
 	false, 
 	"802.11 b/g", 
-	"Introducing Dell\u2122 Streak 7. Share photos, videos and movies together. 
-	It\u2019s small enough to carry around, big enough to gather around. 
-	Android\u2122 2.2-based tablet with over-the-air upgrade capability for future OS releases.  
-	A vibrant 7-inch, multitouch display with full Adobe\u00ae Flash 10.1 pre-installed.  
+	"Introducing Dell Streak 7. Share photos, videos and movies together. 
+	It's small enough to carry around, big enough to gather around. 
+	Android 2.2-based tablet with over-the-air upgrade capability for future OS releases.  
+	A vibrant 7-inch, multitouch display with full Adobe Flash 10.1 pre-installed.  
 	Includes a 1.3 MP front-facing camera for face-to-face chats on popular services such as Qik or Skype.  
 	16 GB of internal storage, plus Wi-Fi, Bluetooth and built-in GPS keeps you in touch with the world around you.  
 	Connect on your terms. Save with 2-year contract or flexibility with prepaid pay-as-you-go plans!", 
@@ -48,6 +48,7 @@ VALUES(
 	"img/phones/dell-streak-7.3.jpg", 
 	"img/phones/dell-streak-7.4.jpg", 
 	"Dell Streak 7", 
+	129.99,
 	199.9, 
 	119.8, 
 	12.4, 
@@ -63,7 +64,7 @@ INSERT INTO product(additional_features, os, ui, availability, battery_standbyti
 	connectivity_cell, connectivity_gps, connectivity_infrared, connectivity_wifi, description, 
 	display_resolution, display_size, display_touchscreen, hardware_accelerometer, hardware_audiojack,
 	hardware_cpu, hardware_fmradio, hardware_physicalkeyboard, hardware_usb, image_0, image_1, image_2,
-	image_3, image_4, name, dimensions_w, dimensions_h, dimensions_l, weight_grams, storage_flash,
+	image_3, image_4, name, price, dimensions_w, dimensions_h, dimensions_l, weight_grams, storage_flash,
 	storage_ram, added)
 VALUES(
 	"Gorilla Glass display, Dedicated Camera Key, Ring Silence Switch, Swype keyboard.", 
@@ -77,14 +78,14 @@ VALUES(
 	true, 
 	"8.0 megapixels", 
 	"Bluetooth 2.1", 
-	"850/1900/2100 3G; 850/900/1800/1900 GSM/GPRS/EDGE\n900/1700/2100 3G; 850/900/1800/1900 GSM/GPRS/EDGE", 
+	"850/1900/2100 3G; 850/900/1800/1900 GSM/GPRS/EDGE900/1700/2100 3G; 850/900/1800/1900 GSM/GPRS/EDGE", 
 	true, 
 	false, 
 	"802.11 b/g", 
 	"The Venue is the perfect one-touch, Smart Phone providing instant access to everything you love. All of 
 	Venue's features make it perfect for on-the-go students, mobile professionals, and active social communicators 
-	who love style and performance.\n\nElegantly designed, the Venue offers a vibrant, curved glass display that\u2019s 
-	perfect for viewing all types of content. The Venue\u2019s slender form factor feels great in your hand and also 
+	who love style and performance.Elegantly designed, the Venue offers a vibrant, curved glass display that's 
+	perfect for viewing all types of content. The Venue's slender form factor feels great in your hand and also 
 	slips easily into your pocket.  A mobile entertainment powerhouse that lets you download the latest tunes from 
 	Amazon MP3 or books from Kindle, watch video, or stream your favorite radio stations.  All on the go, anytime, 
 	anywhere.",
@@ -103,6 +104,7 @@ VALUES(
 	"img/phones/dell-venue.3.jpg", 
 	"img/phones/dell-venue.4.jpg", 
 	"Dell Venue",
+	192.74,
 	64.0, 
 	121.0, 
 	12.9, 
@@ -118,7 +120,7 @@ INSERT INTO product(additional_features, os, ui, availability, battery_standbyti
 	connectivity_cell, connectivity_gps, connectivity_infrared, connectivity_wifi, description, 
 	display_resolution, display_size, display_touchscreen, hardware_accelerometer, hardware_audiojack,
 	hardware_cpu, hardware_fmradio, hardware_physicalkeyboard, hardware_usb, image_0, image_1, image_2,
-	image_3, image_4, name, dimensions_w, dimensions_h, dimensions_l, weight_grams, storage_flash,
+	image_3, image_4, name, price, dimensions_w, dimensions_h, dimensions_l, weight_grams, storage_flash,
 	storage_ram, added)
 VALUES(
 	"Adobe Flash Player 10, Quadband GSM Worldphone, Advance Business Security, Complex Password Secure, 
@@ -156,7 +158,8 @@ VALUES(
   "img/phones/droid-2-global-by-motorola.2.jpg",
   "",
   "", 
-	"DROID\u2122 2 Global by Motorola",
+	"DROID 2 Global",
+	159.75,
 	60.5, 
 	116.3, 
 	13.7, 
@@ -172,12 +175,12 @@ INSERT INTO product(additional_features, os, ui, availability, battery_standbyti
 	connectivity_cell, connectivity_gps, connectivity_infrared, connectivity_wifi, description, 
 	display_resolution, display_size, display_touchscreen, hardware_accelerometer, hardware_audiojack,
 	hardware_cpu, hardware_fmradio, hardware_physicalkeyboard, hardware_usb, image_0, image_1, image_2,
-	image_3, image_4, name, dimensions_w, dimensions_h, dimensions_l, weight_grams, storage_flash,
+	image_3, image_4, name, price, dimensions_w, dimensions_h, dimensions_l, weight_grams, storage_flash,
 	storage_ram, added)
 VALUES(
 	"Multiple messaging options, including text with threaded messaging for organized, 
   easy-to-follow text; Social Community support, including Facebook and MySpace; 
-  Next generation Address book; Visual Voice Mail\n, 3.0 megapixel camera, and more",  
+  Next generation Address book; Visual Voice Mail, 3.0 megapixel camera, and more",  
 	"Android 2.2", 
 	"MOTOBLUR", 
 	"AT&T", 
@@ -193,7 +196,7 @@ VALUES(
 	true, 
 	false, 
 	"802.11 a/b/g/n", 
-	"MOTOROLA ATRIX 4G gives you dual-core processing power and the revolutionary webtop 
+	"Motorola Atrix 4G gives you dual-core processing power and the revolutionary webtop 
     application. With webtop and a compatible Motorola docking station, sold separately, you can surf the 
     Internet with a full Firefox browser, create and edit docs, or access multimedia on a large screen 
     almost anywhere.",
@@ -211,7 +214,8 @@ VALUES(
 	"img/phones/motorola-atrix-4g.2.jpg", 
 	"img/phones/motorola-atrix-4g.3.jpg",
   "", 
-	"MOTOROLA ATRIX\u2122 4G",
+	"Motorola Atrix 4G",
+	272.77,
 	63.5, 
 	117.75, 
 	10.95, 
@@ -227,14 +231,14 @@ INSERT INTO product(additional_features, os, ui, availability, battery_standbyti
 	connectivity_cell, connectivity_gps, connectivity_infrared, connectivity_wifi, description, 
 	display_resolution, display_size, display_touchscreen, hardware_accelerometer, hardware_audiojack,
 	hardware_cpu, hardware_fmradio, hardware_physicalkeyboard, hardware_usb, image_0, image_1, image_2,
-	image_3, image_4, name, dimensions_w, dimensions_h, dimensions_l, weight_grams, storage_flash,
+	image_3, image_4, name, price, dimensions_w, dimensions_h, dimensions_l, weight_grams, storage_flash,
 	storage_ram, added)
 VALUES(
-	"3.2\u201d Full touch screen with Advanced anti smudge, anti 
+	"3.2 Full touch screen with Advanced anti smudge, anti 
   reflective and anti scratch glass; Swype text input for easy and fast message creation; 
   multiple messaging options, including text with threaded messaging for organized, 
   easy-to-follow text; Social Community support, including Facebook and MySpace; 
-  Next generation Address book; Visual Voice Mail\n",  
+  Next generation Address book; Visual Voice Mail",  
 	"Android 2.1", 
 	"TouchWiz", 
 	"Cellular South", 
@@ -245,15 +249,15 @@ VALUES(
 	true, 
 	"3.0 megapixels", 
 	"Bluetooth 3.0", 
-	"3G/CDMA : 850MHz/1900MHz\n", 
+	"3G/CDMA : 850MHz/1900MHz", 
 	true, 
 	false,
 	"802.11 b/g",  
-	"The Samsung Gem\u2122 maps a route to a smarter mobile experience. 
-  By pairing one of the fastest processors in the category with the Android\u2122 
+	"The Samsung Gem maps a route to a smarter mobile experience. 
+  By pairing one of the fastest processors in the category with the Android 
   platform, the Gem delivers maximum multitasking speed and social networking 
   capabilities to let you explore new territory online. A smart phone at an even 
-  smarter price is a real find, so uncover the Gem and discover what\u2019s next.",
+  smarter price is a real find, so uncover the Gem and discover what's next.",
 	"WQVGA (400 x 240)",
 	"3.2 inches", 
 	true, 
@@ -262,18 +266,80 @@ VALUES(
 	"800 MHz", 
 	false, 
 	true, 
-	"USB 2.0", 
-	"img/phones/motorola-atrix-4g.0.jpg", 
+	"USB 2.0",  
 	"img/phones/samsung-gem.0.jpg", 
 	"img/phones/samsung-gem.1.jpg", 
 	"img/phones/samsung-gem.2.jpg",
 	"", 
-	"Samsung Gem\u2122",
+	"",
+	"Samsung Gem",
+	169.80,
 	55.5, 
 	113.0, 
 	12.4, 
 	110.0, 
 	"1024MB", 
+	"1024MB", 
+	CURRENT_TIMESTAMP()
+	);
+
+# create a product record
+INSERT INTO product(additional_features, os, ui, availability, battery_standbytime, 
+	battery_talktime, battery_type, camera_flash, camera_video, camera_primary, connectivity_bluetooth, 
+	connectivity_cell, connectivity_gps, connectivity_infrared, connectivity_wifi, description, 
+	display_resolution, display_size, display_touchscreen, hardware_accelerometer, hardware_audiojack,
+	hardware_cpu, hardware_fmradio, hardware_physicalkeyboard, hardware_usb, image_0, image_1, image_2,
+	image_3, image_4, name, price, dimensions_w, dimensions_h, dimensions_l, weight_grams, storage_flash,
+	storage_ram, added)
+VALUES(
+	"Contour Display, Near Field Communications (NFC), 
+  Three-axis gyroscope, Anti-fingerprint display coating, Internet Calling support 
+  (VoIP/SIP)",  
+	"Android 2.3", 
+	"Android", 
+	"O2, Orange, Singatel, StarHub, T-Mobile", 
+	"428 hours", 
+	"6 hours", 
+	"Lithium Ion (Li-Ion) (1500 mAH)", 
+	true, 
+	true, 
+	"5.0 megapixels", 
+	"Bluetooth 2.1", 
+	"3GQuad-band GSM: 850, 900, 1800, 1900 Tri-band HSPA: 900, 2100, 
+        1700 HSPA type: HSDPA (7.2Mbps) HSUPA (5.76Mbps)", 
+	true, 
+	false,
+	"802.11 b/g/n",  
+	"Nexus S is the next generation of Nexus devices, 
+  co-developed by Google and Samsung. The latest Android platform 
+  (Gingerbread), paired with a 1 GHz Hummingbird processor and 16GB of memory, 
+  makes Nexus S one of the fastest phones on the market. It comes pre-installed 
+  with the best of Google apps and enabled with new and popular features like true 
+  multi-tasking, Wi-Fi hotspot, Internet Calling, NFC support, and full web browsing. 
+  With this device, users will also be the first to receive software upgrades and new 
+  Google mobile apps as soon as they become available. For more details, visit 
+  http://www.google.com/nexus.",
+  "WVGA (800 x 480)",
+	"4.0 inches", 
+	true, 
+	true, 
+	"3.5mm", 
+	"1GHz Cortex A8 (Hummingbird) processor", 
+	false, 
+	false, 
+	"USB 2.0",  
+	"img/phones/nexus-s.0.jpg", 
+	"img/phones/nexus-s.1.jpg", 
+	"img/phones/nexus-s.2.jpg", 
+	"img/phones/nexus-s.3.jpg",
+	"",
+	"Nexus S",
+	372.79,
+	63.0, 
+	123.9, 
+	10.88, 
+	129.0, 
+	"16384MB", 
 	"1024MB", 
 	CURRENT_TIMESTAMP()
 	);
