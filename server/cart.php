@@ -59,7 +59,6 @@
               <th>Remove</th>
               <th>Image</th>
               <th>Product Name</th>
-              <th>Quantity</th>
               <th>Unit Price</th>
               <th>Total</th>
             </tr>
@@ -68,31 +67,30 @@
 
           <tbody>
 
-            <tr ng-repeat="item in cart">
+            <tr ng-repeat="item in cart track by $index">
 
               <!-- Remove product checkbox -->
-              <td class="">
-                <input type="checkbox" value="true" id="optionsCheckbox">
+              <td class="muted center_text">
+                <button class="btn btn-danger" ng-click="remove(item,$index)">
+                  <span class="glyphicon glyphicon-remove"></span>
+                </button>
               </td>
 
               <!-- Image -->
               <td class="muted center_text">
                 <a href="home.php">
-                  <img class="img-thumbnail" title="" src="{{item.image_0}}" style="width: 120px; height: auto">
+                  <img class="img-thumbnail" title="" src="{{item.image_0}}" style="width: 60px; height: auto">
                 </a>
               </td>
 
               <!-- Product Name --> 
-              <td>{{item.name}}</td>
-              
-              <!-- Item Quantity -->
-              <td><input type="text" placeholder="{{getItemQty()}}" class="input-mini"></td>
+              <td class="muted center_text">{{item.name}}</td>
 
               <!-- Unit Price -->
-              <td>{{item.price} | currency: ''}</td>
+              <td class="muted center_text">{{item.price | currency:"€"}}</td>
 
               <!-- Item Total -->
-              <td>{{item.price * item.qty}}</td>
+              <td class="muted center_text">{{item.price | currency:"€" }}</td>
 
             </tr> 
 
@@ -103,10 +101,9 @@
               <td></td>
               <td></td>
               <td></td>
-              <td></td>
               
-              <td>
-                <strong>{{cart.total}}</strong>
+              <td ng-model="order">
+                <strong>{{order.total | currency:"€"}}</strong>
               </td>
 
             </tr>  

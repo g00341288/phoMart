@@ -1,10 +1,17 @@
 <?php
+
+	// The define() statements set up constants for the 
+	// application representing the host, user, password
+	// and database name for the application. See the 
+	// application manual for guidance on setting them!
 	define('DBHOST', 'localhost');
 	define('DBUSER', 'root');
 	define('DBPASS', '');
 	define('DBNAME', 'wad');
 
 	class DB {
+		/** @var In general, class properties in PHP are defined as public, private, 
+		or protected, not unlike other object-oriented languages.  [description] */
 		private $con = false;
 		private $data = array();
 
@@ -16,26 +23,33 @@
 			}
 		}
 
-		public function qryPop() {
-			$sql = "SELECT * FROM `product`";
-			$qry = $this->con->query($sql);
-			if($qry->num_rows > 0) {
-				while($row = $qry->fetch_object()) {
-					$this->data[] = $row;
+		public function retrieveData($sql=null, $table) {
+			if($sql == null) {
+				$sql = "SELECT * FROM " . $table;
+				$qry = $this->con->query($sql);
+				if($qry->num_rows > 0) {
+					while($row = $qry->fetch_object()) {
+						$this->data[] = $row;
+					}
+				} else {
+					$this->data[] = null;
 				}
-			} else {
-				$this->data[] = null;
 			}
-			//$this->con->close(); find out when to perform the close call, as it stands this throws a mysqli error
+			else {
+				$qry = $this->con->query($sql);
+				if($qry->num_rows > 0) {
+					while($row = $qry->fetch_object()) {
+						$this->data[] = $row;
+					}
+				} else {
+					$this->data[] = null;
+				}
+			}
+
 		}
 
-		public function qryFire($sql=null) {
-			if($sql == null) {
-				$this->qryPop();
-			} else {
-				$this->con->query($sql);
-				$this->qryPop();	
-			}
+		public function executeQuery($sql=null, $table) {
+			$this->retrieveData($sql, $table);
 			$this->con->close();
 			return $this->data;
 		}

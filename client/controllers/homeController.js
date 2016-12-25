@@ -2,9 +2,14 @@
  * Define a controller to manage the home view (home.php)
  */
 angular.module('phoMart.controllers')
-	.controller('HomeController', function($scope, $rootScope, ProductService, SessionService){
+	.controller('HomeController', function($scope, NavCartService, ProductService, SessionService){
 
 		console.log('HomeController triggered');
+
+		/** Notify all subscribers that a NavCartService event has occurred */
+		$scope.notify = function(){
+			NavCartService.notify();
+		}; 
 
 		/** @type {array} Make an array available to the $scope to hold products for 
 		consumption by the view */
@@ -16,8 +21,11 @@ angular.module('phoMart.controllers')
 		 * @param  {object} res Response object from AJAX call to PHP server
 		 */
 		function success(res){
-			/** @type {array} An array of products retrieved from the DB */
+			
+			/** @type {array} Add an array of products retrieved from the DB, 
+			to the $scope */
 			$scope.products = res.data;
+			console.log($scope.products);
 			
 		}
 
@@ -33,17 +41,24 @@ angular.module('phoMart.controllers')
 
 		/** Call the ProductService retrieve() method to retrieve data from the 
 		product table of the application database */
-		ProductService.retrieve('../server/db/getProductData.php').then(success, failure);
+		ProductService.retrieve('../server/db/getProductData.php',"?shitehawk=booyeah").then(success, failure);
 
 		$scope.addToCart = function(product){
 
 			/** @type {string} Get the PHP session id for this user */
 			var sessionId = SessionService.retrieveSessionId('PHPSESSID');
 
+			product.cart_id = sessionId + "_" + localStorage.length; 
 			
-			/** Store the new cart item in localStorage, using a combination of session id and 
-			storage length to construct a unique key for the resulting key/value pair */
+			/** and store the current product in localStorage */
 			localStorage.setItem(sessionId + "_" + localStorage.length, JSON.stringify(product));
-		}; 
 
-	});
+			/** Broadcast to all subscribers that an item has been added to the cart - currently, 
+			the only subscriber is the NavController which will update the navbar cart quantity
+			when it is notified of the given event! */
+			$scope.notify();
+			
+		
+		}
+			
+		});

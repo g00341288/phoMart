@@ -3,9 +3,6 @@
 
 	$db = new DB();
 
-	$data = $db->executeQuery(null, "product");
-
-
-	echo($_POST['shitehawk']);
+	$data = $db->executeQuery(null, "order");
 
 	echo json_encode($data);
