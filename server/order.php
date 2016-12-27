@@ -1,1 +1,0 @@
-<?php echo 'Boo-fuckin-yeah!' ?>

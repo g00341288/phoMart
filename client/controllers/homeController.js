@@ -2,7 +2,7 @@
  * Define a controller to manage the home view (home.php)
  */
 angular.module('phoMart.controllers')
-	.controller('HomeController', function($scope, NavCartService, ProductService, SessionService){
+	.controller('HomeController', function($scope, NavCartService, DBService, SessionService){
 
 		console.log('HomeController triggered');
 
@@ -16,7 +16,7 @@ angular.module('phoMart.controllers')
 		$scope.products = []; 
 
 		/**
-		 * Success callback for the ProductService.retrieve AJAX call
+		 * Success callback for the DBService.retrieve AJAX call
 		 * to the MySQL DB product table
 		 * @param  {object} res Response object from AJAX call to PHP server
 		 */
@@ -30,7 +30,7 @@ angular.module('phoMart.controllers')
 		}
 
 		/**
-		 * Failure callback for the ProductService.retrieve AJAX call
+		 * Failure callback for the DBService.retrieve AJAX call
 		 * to the MySQL DB product table
 		 * @param  {object} res Response object from AJAX call to PHP server
 		 */
@@ -39,9 +39,9 @@ angular.module('phoMart.controllers')
 			console.error(res);
 		}
 
-		/** Call the ProductService retrieve() method to retrieve data from the 
+		/** Call the DBService retrieve() method to retrieve data from the 
 		product table of the application database */
-		ProductService.retrieve('../server/db/getProductData.php',"?shitehawk=booyeah").then(success, failure);
+		DBService.retrieve('../server/db/getProductData.php').then(success, failure);
 
 		$scope.addToCart = function(product){
 

@@ -11,7 +11,7 @@
 
 	class DB {
 		/** @var In general, class properties in PHP are defined as public, private, 
-		or protected, not unlike other object-oriented languages.  [description] */
+		or protected, not unlike other object-oriented languages.  [TODO - flesh this out] */
 		private $con = false;
 		private $data = array();
 
@@ -24,11 +24,11 @@
 		}
 		/**
 		 * Given an optional query string and a table name retrieve 
-		 * the given ata
+		 * the given data
 		 * @param  [type] $sql   a query string or null (default)
 		 * @param  [type] $table a table name
 		 */
-		public function retrieveData($sql=null, $table) {
+		public function queryDatabase($sql=null, $table) {
 			if($sql == null) {
 				$sql = "SELECT * FROM " . $table;
 				$qry = $this->con->query($sql);
@@ -54,7 +54,7 @@
 		}
 
 		public function executeQuery($sql=null, $table) {
-			$this->retrieveData($sql, $table);
+			$this->queryDatabase($sql, $table);
 			$this->con->close();
 			return $this->data;
 		}

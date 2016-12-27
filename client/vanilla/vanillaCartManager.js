@@ -1,10 +1,10 @@
 /**
  * @type {object}		Create a new domr object outside the scope of jQuery's document.ready()
- * which would otherwise not have access to it
+ * domr is not accessible from within the scope of the document.ready() function
  */
 var domr = domr();
 
-// A $( document ).ready() block.
+// A $( document ).ready() block for cart manager.
 $( document ).ready(function(window) {
 
 	/**------------------------------------------- DOM Construction ------------------------------------ */
@@ -207,7 +207,7 @@ $( document ).ready(function(window) {
 	}
   
   /**------------------------------------------- Main ---------------------------------------------- */
-
+  var path;
 
   /** @type {array} Cart items array */
   var cartItems = retrieveCartItemsFromLocalStorage(getSessionId(), localStorage, parse); 
@@ -229,8 +229,7 @@ $( document ).ready(function(window) {
 		
 		/** Iterate over localStorage, and, if an item is found with a key matching the data-cart-id
 		attribute of the table row associated with the button that raised the click event, increment 
-		numberOfCartItems, then delete
-		the item from storage*/
+		numberOfCartItems, then delete the item from storage that corresponds to the given table row*/
 		for(var key in localStorage){
 			if(key.match(sessionId)){
 				numberOfCartItems++;
@@ -265,13 +264,14 @@ $( document ).ready(function(window) {
 		$('td#total>strong').text("€" + _total);
   }); 
 
-  $('button.proceed').on('click', function(){
-  	
-  	/** @type {string}	 Get the path to the current file */
-  	var path = document.location.href.match(/^.*[\\\/]/, '');
+  /** Add an event handler to manage the transition to the order page  */
+  $('button.proceed').on('click', function(){ 
+
+  	/** @type {string}	 Get the path to the current file using regular expression*/
+  	path = document.location.href.match(/^.*[\\\/]/, '');
 
   	/** @type {string}	 Concatenate on the file for the target page */
-  	document.location.href = path + 'order.php';
+  	document.location.href = path + 'checkout.php';
 
   });
 

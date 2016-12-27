@@ -2,8 +2,7 @@
  * Define a controller to manage the home view (home.php)
  */
 angular.module('phoMart.controllers')
-	.controller('NavController', function($scope, $rootScope, ProductService, 
-		SessionService, NavCartService){
+	.controller('NavController', function($scope, $rootScope, SessionService, NavCartService){
 
 		console.log('NavController triggered');
 
