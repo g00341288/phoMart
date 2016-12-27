@@ -1,16 +1,35 @@
 /** 
- * A service which exposes an API with methods for working with session data
+ * A service which exposes an API with for various useful utilities
  */
 function utilityService($http){
 
+  /**
+   * Check if a given value occurs in a given array
+   * @param  {*}        value      A 'primitive' value
+   * @param  {array}    array      An array of such values
+   * @return {boolean}             True if the array contains the value, false otherwise
+   */ 
   function contains(value, array) {
     return array.indexOf(value) > -1;
   }
 
+  /**
+   * Get the current session id from cookies the vanilla JS way
+   * @return {string} Current session ID retrieved from cookies
+   */
   function getSessionId(){
     return document.cookie.match(/PHPSESSID=[^;]+/)[0].split("=")[1]; 
   }
 
+  /**
+   * A rough and ready iterator for selectively iterating over collections like localStorage
+   * and serving up the results
+   * @param  {string}     match       A string or regex to filter each iteration
+   * @param  {*}          collection  Some collection, an array or localStorage
+   * @param  {function}   callback    A callback function to execute against matching items
+   * @param  {*}          params      Parameters useful for callback function
+   * @return {array}                  An array of suitably filtered items
+   */
   function each(match, collection, callback, params){
     var output = []; 
 
