@@ -48,9 +48,12 @@
                </a>
 
               <ul class="dropdown-menu">
-                <li ng-model="cart">
-                  <a href="cart.php"><span class="glyphicon glyphicon-shopping-cart"></span>
-                  &nbsp;Cart({{cart.quantity}})</a>
+              <!-- Show cart link in dropdown, only if the current page is not the cart page -->
+                <li ng-model="cart"><?php 
+                  if(pathinfo($_SERVER['SCRIPT_FILENAME'], PATHINFO_FILENAME) != 'cart'){
+                    echo '<a href="cart.php"><span class="glyphicon glyphicon-shopping-cart items"></span>
+                  &nbsp;Cart({{cart.quantity}})</a>'; } ?>
+                  
                 </li>
                 <li>
                   <a href="checkout.php"><span class="glyphicon glyphicon-euro"></span>&nbsp;Checkout</a>

@@ -23,4 +23,7 @@
   <script src="../client/services/utilityService.js"></script>
   <script src="../client/services/navCartService.js"></script>
   <script src="../client/services/cartService.js"></script>
+  <script src="../client/vanillaJS/domr.js" defer></script>
+  <script src="../client/vanillaJS/vanillaJSCartManager.js" defer></script>
+
   </head>

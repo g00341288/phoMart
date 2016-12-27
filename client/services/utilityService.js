@@ -7,6 +7,25 @@ function utilityService($http){
     return array.indexOf(value) > -1;
   }
 
+  function getSessionId(){
+    return document.cookie.match(/PHPSESSID=[^;]+/)[0].split("=")[1]; 
+  }
+
+  function each(match, collection, callback, params){
+    var output = []; 
+
+    /** Iterate over collection - and execute the callback against the matching 
+    items given match (string) and params (any)*/
+    for(var key in collection){
+      
+      if(key.match(match)){
+        output.push(callback(match, params)); 
+      }
+
+    }
+    return output;
+  }
+
   /**
    * Using the revealing module pattern expose a simple API with methods for 
    * working on various problems in the application solution domain, including
@@ -22,7 +41,9 @@ function utilityService($http){
    *
    */
   return {
-    contains: contains
+    contains: contains,
+    each: each, 
+    getSessionId: getSessionId
   }
 }
 

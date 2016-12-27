@@ -22,7 +22,12 @@
 				die("DB connection failed:" . mysqli_connect_error());
 			}
 		}
-
+		/**
+		 * Given an optional query string and a table name retrieve 
+		 * the given ata
+		 * @param  [type] $sql   a query string or null (default)
+		 * @param  [type] $table a table name
+		 */
 		public function retrieveData($sql=null, $table) {
 			if($sql == null) {
 				$sql = "SELECT * FROM " . $table;
