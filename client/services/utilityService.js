@@ -1,7 +1,11 @@
 /** 
- * A service which exposes an API with for various useful utilities
+ * A service which exposes an API for various useful utilities
  */
 function utilityService($http){
+
+  function getDate(){
+    return Date();
+  }
 
   /**
    * Check if a given value occurs in a given array
@@ -57,12 +61,15 @@ function utilityService($http){
    * and the relevant methods will be called as follows:
    * 
    * UtilityService.contains(value, array)
+   * UtilityService.each(match, collection, callback, params)
+   * UtilityService.getSessionId()
    *
    */
   return {
     contains: contains,
     each: each, 
-    getSessionId: getSessionId
+    getSessionId: getSessionId, 
+    getDate: getDate
   }
 }
 

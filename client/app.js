@@ -5,7 +5,7 @@
  * submodules
  * 
  * Dependencies include: 
- *   phoMart.services              (for db transactions, AJAX requests and local storage operations)
- *   phoMart.controllers					 ([TODO])
+ *   phoMart.services         (for db transactions, AJAX requests and local storage operations)
+ *   phoMart.controllers			([TODO])
  */
 angular.module('phoMart', ['phoMart.services', 'phoMart.controllers', 'ngCookies']);

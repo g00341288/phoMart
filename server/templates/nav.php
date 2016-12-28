@@ -32,7 +32,7 @@
 
           <ul class="nav navbar-nav navbar-right">
             <li>
-                <!-- <button class="btn btn-success"><span class="glyphicon glyphicon-shopping-cart"></span> <span ng-model="cart" class="items">{{cart.quantity}}</span></button> -->
+               
             </li>
             <li class="dropdown">
 

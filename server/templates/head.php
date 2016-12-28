@@ -14,15 +14,14 @@
   <script src="../client/app.js"></script>
   <script src="../bower_components/angular-cookies/angular-cookies.js"></script>
   <script src="../client/services.js"></script>
-  <script src="../client/controllers.js"></script>
-  <script src="../client/controllers/homeController.js"></script>
-  <script src="../client/controllers/navController.js"></script>
-  <script src="../client/controllers/cartController.js"></script>
   <script src="../client/services/dbService.js"></script>
   <script src="../client/services/sessionService.js"></script>
   <script src="../client/services/utilityService.js"></script>
   <script src="../client/services/navCartService.js"></script>
-  <script src="../client/services/cartService.js"></script>
+  <script src="../client/controllers.js"></script>
+  <script src="../client/controllers/homeController.js"></script>
+  <script src="../client/controllers/navController.js"></script>
+  <script src="../client/controllers/checkoutController.js"></script>
   <script src="../client/vanilla/domr.js" defer></script>
   <script src="../client/vanilla/vanillaCartManager.js" defer></script>
 

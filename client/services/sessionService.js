@@ -5,8 +5,8 @@ function phoMartSessionService($http, $cookies){
 
   /**
    * Retrieve the PHP session id from cookies
-   * @param  {string} match cookie identifier for PHP Session ID
-   * @return {string}         PHP Session id as a string (retrieved from cookie)
+   * @param  {string}   match  cookie identifier for PHP Session ID
+   * @return {string}          PHP Session id as a string (retrieved from cookie)
    */
   function retrieveSessionId(match) {
     return $cookies.get(match); 

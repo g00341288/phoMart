@@ -29,11 +29,12 @@ function dbQueryService($http){
    * Retrieve a record from a given table of the wad database - the table is identified
    * in the params to the method
    * @param  {string} baseUrl Resource locator or service base url
-   * @param  {string} params  Parameters to be passed to the PHP interpreter
+   * @param  {object} params  Parameters to be passed to the PHP interpreter
    * @return {object}         Query response object
    */
   function retrieveRecord(baseUrl, params) {
     return $http.get(baseUrl, params).then(function(res, status, headers, config){
+      console.log(config);
       return res;
     }, function(res){
       console.log('Something went wrong!');

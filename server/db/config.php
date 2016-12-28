@@ -24,9 +24,11 @@
 		}
 		/**
 		 * Given an optional query string and a table name retrieve 
-		 * the given data
-		 * @param  [type] $sql   a query string or null (default)
-		 * @param  [type] $table a table name
+		 * the given data - in the event the query string is not present
+		 * execute a SELECT * query on the given table - this may or may
+		 * not be a reasonable default depending on the size of the table
+		 * @param  [string] $sql   	A query string or null (default)
+		 * @param  [string] $table  A table name
 		 */
 		public function queryDatabase($sql=null, $table) {
 			if($sql == null) {
@@ -52,7 +54,12 @@
 			}
 
 		}
-
+		/**
+		 * Execute the given query, close the connection and return the data
+		 * @param  [string] 	$sql   [description]
+		 * @param  [string] 	$table [description]
+		 * @return [type]        [TODO - find out type]
+		 */
 		public function executeQuery($sql=null, $table) {
 			$this->queryDatabase($sql, $table);
 			$this->con->close();

@@ -49,10 +49,27 @@
 
       </div>
       
-      <!-- Cart here -->
-      <div id="orderContainer" class="row" >
+      <!-- Order summary here -->
+      <div id="orderContainer" class="row" ng-controller="CheckoutController" >
+  
+      <div class="panel panel-default" data-user-id>
+        <div class="panel-body">
 
-      
+          <div class="col-md-12">
+          Date: {{meta.date}}
+            <div class="panel panel-info" ng-repeat="item in order.items">
+              <div class="panel-heading">
+                <h3 class="panel-title">Panel title</h3>
+              </div>
+              <div class="panel-body">
+                Panel content
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+        
+
       </div>
 
     </div>

@@ -39,9 +39,8 @@ angular.module('phoMart.controllers')
 			console.error(res);
 		}
 
-		/** Call the DBService retrieve() method to retrieve data from the 
-		product table of the application database */
-		DBService.retrieve('../server/db/getProductData.php').then(success, failure);
+		/** Call the DBService retrieve() method to retrieve data from the product table of the application database */
+		DBService.retrieve('../server/db/queryDB.php?', {params: {table: 'product'}}).then(success, failure);
 
 		$scope.addToCart = function(product){
 
