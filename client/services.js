@@ -1,11 +1,12 @@
 /**
  * Create and register the services submodule of the phoMart module.
- * Submodule services are defined in the following files (relative to www): 
+ * Submodule services are defined in the following files (relative to phoMart
+ * directory): 
  *
- * services/cartService.js
- * services/navCartService.js
- * services/productService.js
- * services/utilityService.js
+ * client/services/dbService.js
+ * client/services/navCartService.js
+ * client/services/sessionService.js
+ * client/services/utilityService.js
  * 
  * angular.module is used to create, register and retrieve application 
  * modules in an Angular application - all modules are registered with 

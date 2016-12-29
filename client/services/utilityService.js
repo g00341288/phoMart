@@ -7,6 +7,10 @@ function utilityService($http){
     return Date();
   }
 
+  function parse(item) {
+    return JSON.parse(item);
+  }
+
   /**
    * Check if a given value occurs in a given array
    * @param  {*}        value      A 'primitive' value
@@ -26,23 +30,22 @@ function utilityService($http){
   }
 
   /**
-   * A rough and ready iterator for selectively iterating over collections like localStorage
+   * A rough and ready iterator for selectively iterating over localStorage
    * and serving up the results
    * @param  {string}     match       A string or regex to filter each iteration
-   * @param  {*}          collection  Some collection, an array or localStorage
+   * @param  {*}          collection  localStorage or other collection with similar API
    * @param  {function}   callback    A callback function to execute against matching items
-   * @param  {*}          params      Parameters useful for callback function
    * @return {array}                  An array of suitably filtered items
    */
-  function each(match, collection, callback, params){
+  function each(match, collection, callback){
     var output = []; 
 
     /** Iterate over collection - and execute the callback against the matching 
-    items given match (string) and params (any)*/
+    items given match (string) */
     for(var key in collection){
       
       if(key.match(match)){
-        output.push(callback(match, params)); 
+        output.push(callback(collection.getItem(key))); 
       }
 
     }
@@ -69,7 +72,8 @@ function utilityService($http){
     contains: contains,
     each: each, 
     getSessionId: getSessionId, 
-    getDate: getDate
+    getDate: getDate,
+    parse: parse
   }
 }
 

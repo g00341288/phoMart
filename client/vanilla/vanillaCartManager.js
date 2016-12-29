@@ -270,8 +270,16 @@ $( document ).ready(function(window) {
   	/** @type {string}	 Get the path to the current file using regular expression*/
   	path = document.location.href.match(/^.*[\\\/]/, '');
 
-  	/** @type {string}	 Concatenate on the file for the target page */
-  	document.location.href = path + 'checkout.php';
+  	/** If the cart is empty, redirect to home page, otherwise, proceed to checkout */
+  	if(retrieveCartItemsFromLocalStorage(getSessionId(), localStorage, parse).length <= 0){
+  		alert('Cart is empty! Redirecting to home page');
+  		document.location.href = path + 'home.php';
+  	}
+  	else {
+  		/** @type {string}	 Proceed to checkout */
+  		document.location.href = path + 'checkout.php';
+  	}
+  	
 
   });
 

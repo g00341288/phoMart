@@ -1,10 +1,11 @@
 /**
- * Create and register the controllers submodule of the starter module.
- * Submodule controllers are defined in the following files (relative to www): 
+ * Create and register the controllers submodule of the phoMart module.
+ * Submodule controllers are defined in the following files (relative to 
+ * phoMart directory): 
  *
- * controllers/cartController.js
- * controllers/homeController.js
- * controllers/navController.js
+ * client/controllers/checkoutController.js
+ * client/controllers/homeController.js
+ * client/controllers/navController.js
  * 
  * angular.module is used to create, register and retrieve application 
  * modules in an Angular application - all modules are registered with 

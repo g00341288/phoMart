@@ -1,15 +1,59 @@
 <?php
 	include('config.php');
 
-	/** @var string Table identifier is passed as a param to the AngularJS AJAX .get()
-	method */
-	$table = $_GET['table']; 
+	/** @var Current timestamp  */
+	$timestamp = date('Y-m-d G:i:s');
 
+	/** Decode JSON data from AJAX request in a format suitable for consumption by PHP */
+	$json_input = file_get_contents('php://input');
+
+	if($json_input){
+		$_REQUEST = json_decode($json_input, true);
+	}
+
+	/** If the request is a POST request, and the table parameter is equal to '_order' */
+	if($_SERVER['REQUEST_METHOD'] == 'POST' AND $_REQUEST['params']['table'] == '_order'){
+
+		/** @var Set variables from request for MySQL query  */
+		$table = '_order';
+		$user_id = $_REQUEST['params']['user_id']; 
+		$reference_id = $_REQUEST['params']['reference_id'];
+		$complete = $_REQUEST['params']['complete'];
+		$added = $timestamp;
+
+		/** @var Construct SQL query for order insert */
+		$sql = $sql . "INSERT INTO " . $table . "(user_id, reference_id, complete, added) " . "VALUES(" . $user_id . ", '" . $reference_id . "', '" . $complete . "', '" . $added . "');"; 
+
+
+	}
+	// else if ($_SERVER['REQUEST_METHOD'] == 'POST' AND $_POST['table'] == 'payment'){
+
+	// }
+	else if($_SERVER['REQUEST_METHOD'] == 'GET'){
+
+		/** @var string Table identifier is passed as a param by the AngularJS AJAX .get()
+		method */
+		$table = $_GET['table']; 
+		$sql = null;
+
+	}
+	// else if($_SERVER['REQUEST_METHOD'] == 'PUT'){
+
+	// }
+	// else if($_SERVER['REQUEST_METHOD'] == 'DELETE'){
+
+	// }
+
+	
 	/** @var object New DB instance to handle queries against the wad MySQL/MariaDB database */
 	$db = new DB();
 
-	/** @var [type] [description] */
-	$data = $db->executeQuery(null, $table);
+	/** @var [type] execute SQL query on db and store response */
+	$data = $db->executeQuery($sql, $table);
 
 	/** Encode the data as JSON and return to the AJAX requestor */
+	//echo json_encode($data);
+	//$user_id = $_POST["user_id"]; 
+ 
+
 	echo json_encode($data);

@@ -30,7 +30,7 @@
 		 * @param  [string] $sql   	A query string or null (default)
 		 * @param  [string] $table  A table name
 		 */
-		public function queryDatabase($sql=null, $table) {
+		public function queryDatabase($sql, $table) {
 			if($sql == null) {
 				$sql = "SELECT * FROM " . $table;
 				$qry = $this->con->query($sql);
@@ -44,6 +44,7 @@
 			}
 			else {
 				$qry = $this->con->query($sql);
+				
 				if($qry->num_rows > 0) {
 					while($row = $qry->fetch_object()) {
 						$this->data[] = $row;
@@ -60,7 +61,7 @@
 		 * @param  [string] 	$table [description]
 		 * @return [type]        [TODO - find out type]
 		 */
-		public function executeQuery($sql=null, $table) {
+		public function executeQuery($sql, $table) {
 			$this->queryDatabase($sql, $table);
 			$this->con->close();
 			return $this->data;
