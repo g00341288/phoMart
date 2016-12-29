@@ -43,7 +43,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' AND $_REQUEST['params']['table'] == '_or
 	/** @var Construct SQL query to retrieve order id of recently created order */
 	$sql_select_order_id = "SELECT _order_id FROM _order WHERE reference_id = '" . $reference_id . "' LIMIT 1;"; 
 
-	/** Set up queries */
+	/** Execute first insert query on _order table */
 	mysqli_query($con, $sql_insert_order); 
 
 	/** @var Retrieve order_id of recently created order  */

@@ -34,7 +34,6 @@ function dbQueryService($http){
    */
   function retrieveRecord(baseUrl, params) {
     return $http.get(baseUrl, params).then(function(res, status, headers, config){
-      console.log(config);
       return res;
     }, function(res){
       console.log('Something went wrong!');

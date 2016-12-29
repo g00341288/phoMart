@@ -15,32 +15,34 @@ angular.module('phoMart.controllers')
 		consumption by the view */
 		$scope.products = []; 
 
-		/**
-		 * Success callback for the DBService.retrieve AJAX call
-		 * to the MySQL DB product table
-		 * @param  {object} res Response object from AJAX call to PHP server
-		 */
-		function success(res){
-			
-			/** @type {array} Add an array of products retrieved from the DB, 
-			to the $scope */
-			$scope.products = res.data;
-			console.log($scope.products);
-			
-		}
-
-		/**
-		 * Failure callback for the DBService.retrieve AJAX call
-		 * to the MySQL DB product table
-		 * @param  {object} res Response object from AJAX call to PHP server
-		 */
-		function failure(res){
-			console.log('Something has gone wrong!');
-			console.error(res);
-		}
-
-		/** Call the DBService retrieve() method to retrieve data from the product table of the application database */
-		DBService.retrieve('../server/db/queryDB.php?', {params: {table: 'product'}}).then(success, failure);
+		/** Call the DBService retrieve() method to retrieve data from the product table of the application database 
+		  * The form of this rather convoluted bit of code is as follows: 
+		  * 
+		  * 	DBService.retrieve(baseUrl, params).then(success, failure); 
+		  * 	
+		  * See client/services/DBService.js for more detail
+		  */
+		DBService.retrieve('../server/db/retrieveProducts.php?', { params: { table: 'product'}}).then(
+			/**
+			 * Success callback for the DBService.retrieve AJAX call
+			 * to the MySQL DB product table
+			 * @param  {object} res Response object from AJAX call to PHP server
+			 */
+			function(res){
+				/** @type {array} Add an array of products retrieved from the DB, 
+				to the $scope */
+				$scope.products = res.data;
+				console.log($scope.products);
+			},
+			/**
+			 * Failure callback for the DBService.retrieve AJAX call
+			 * to the MySQL DB product table
+			 * @param  {object} res Response object from AJAX call to PHP server
+			 */ 
+			function(res){
+				console.log('Something has gone wrong!');
+				console.error(res);
+			});
 
 		$scope.addToCart = function(product){
 
