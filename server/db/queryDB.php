@@ -22,8 +22,17 @@
 		$added = $timestamp;
 
 		/** @var Construct SQL query for order insert */
-		$sql = $sql . "INSERT INTO " . $table . "(user_id, reference_id, complete, added) " . "VALUES(" . $user_id . ", '" . $reference_id . "', '" . $complete . "', '" . $added . "');"; 
+		$sql = "INSERT INTO " . $table . "(user_id, reference_id, complete, added) " . "VALUES(" . $user_id . ", '" . $reference_id . "', '" . $complete . "', '" . $added . "');"; 
 
+		/** @var object New DB instance to handle queries against the wad MySQL/MariaDB database */
+		$db = new DB();
+
+		/** @var [type] execute SQL query on db and store response */
+		$data = $db->executeQuery($sql, $table);
+
+		$sql = null; 
+
+		$data = $db->executeQuery($sql, $table);
 
 	}
 	// else if ($_SERVER['REQUEST_METHOD'] == 'POST' AND $_POST['table'] == 'payment'){
@@ -36,6 +45,12 @@
 		$table = $_GET['table']; 
 		$sql = null;
 
+		/** @var object New DB instance to handle queries against the wad MySQL/MariaDB database */
+		$db = new DB();
+
+		/** @var [type] execute SQL query on db and store response */
+		$data = $db->executeQuery($sql, $table);
+
 	}
 	// else if($_SERVER['REQUEST_METHOD'] == 'PUT'){
 
@@ -43,17 +58,6 @@
 	// else if($_SERVER['REQUEST_METHOD'] == 'DELETE'){
 
 	// }
-
-	
-	/** @var object New DB instance to handle queries against the wad MySQL/MariaDB database */
-	$db = new DB();
-
-	/** @var [type] execute SQL query on db and store response */
-	$data = $db->executeQuery($sql, $table);
-
-	/** Encode the data as JSON and return to the AJAX requestor */
-	//echo json_encode($data);
-	//$user_id = $_POST["user_id"]; 
  
 
 	echo json_encode($data);

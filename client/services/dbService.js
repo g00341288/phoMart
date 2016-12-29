@@ -14,9 +14,9 @@ function dbQueryService($http){
    * @param  {string} params  Parameters to be passed to the PHP interpreter
    * @return {object}         Query response object
    */
-  function createRecord(baseUrl, data, params){
+  function createRecord(baseUrl, params){
 
-    return $http.post(baseUrl, data, params).then(function(res, status, headers, config){  
+    return $http.post(baseUrl, params).then(function(res, status, headers, config){  
 
       return res;
       }, function(res){
