@@ -15,7 +15,7 @@
   /** Like include, require, and require_once include and evaluate a given file.
   require_once, however, checks first if the file has been included and if not 
   attempts to do so. dbconnect.php opens a connection to the MySQL server.*/
-  require_once 'dbconnect.php';
+  require_once 'db/config.php';
   
   /** If session is not set, redirect to the login page (index.php) */
   if( !isset($_SESSION['user']) ) {
@@ -23,12 +23,15 @@
     header("Location: index.php");
     exit;
   }
-  
+
   /** @var Get logged in users details from MySQL user table  */
-  $res=mysql_query("SELECT * FROM user WHERE user_id=".$_SESSION['user']);
+  $res=mysqli_query($con, "SELECT * FROM user WHERE user_id=".$_SESSION['user']);
 
   /** @var Fetch the result row */
-  $userRow=mysql_fetch_array($res);
+  $userRow=mysqli_fetch_array($res);
+
+  /** Close the connection */
+  mysqli_close($con);
 
 ?>
 
