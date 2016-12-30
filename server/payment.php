@@ -15,7 +15,7 @@
   /** Like include, require, and require_once include and evaluate a given file.
   require_once, however, checks first if the file has been included and if not 
   attempts to do so. dbconnect.php opens a connection to the MySQL server.*/
-  require_once 'dbconnect.php';
+  require_once 'db/config.php';
   
   /** If session is not set, redirect to the login page (index.php) */
   if( !isset($_SESSION['user']) ) {
@@ -25,10 +25,12 @@
   }
   
   /** @var Get logged in users details from MySQL user table  */
-  $res = mysql_query("SELECT * FROM user WHERE user_id=".$_SESSION['user']);
+  $res=mysqli_query($con, "SELECT * FROM user WHERE user_id=".$_SESSION['user']);
 
   /** @var Fetch the result row */
-  $userRow = mysql_fetch_array($res);
+  $userRow=mysqli_fetch_array($res);
+
+  
 
   /** Get and store session id */
   $sessionId = session_id();
@@ -62,11 +64,17 @@
         <!-- Display template content conditionally - if the order exists, the payment form is 
         displayed, otherwise, a warning template is displayed -->
           <?php 
+
+            /** Like include, require, and require_once include and evaluate a given file.
+            require_once, however, checks first if the file has been included and if not 
+            attempts to do so. dbconnect.php opens a connection to the MySQL server.*/
+            require_once 'db/config.php';
+
             $query = "SELECT * FROM _order WHERE reference_id=" . $sessionId . " LIMIT 1;";
 
             /** Check that an order exists for this session! */
-            $res=mysql_query("SELECT * FROM _order WHERE reference_id='" . $sessionId . "' LIMIT 1;"); 
-            $num_rows = mysql_num_rows($res); 
+            $res=mysqli_query($con, "SELECT * FROM _order WHERE reference_id='" . $sessionId . "' LIMIT 1;"); 
+            $num_rows = mysqli_num_rows($res); 
 
             /** If there is an order for this session */
             if($num_rows > 0){
@@ -76,6 +84,8 @@
             else {
               // populate the page with the warning template
               include 'templates/paymentFormWarning.php';
+              /** Close the connection */
+              mysqli_close($con);
               
             }
           ?>
