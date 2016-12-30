@@ -46,7 +46,7 @@ if($_SERVER['REQUEST_METHOD'] == 'GET' AND $_GET['table'] == 'product'){
 
 }
 else {
-	$data = "This module accepts GET requests only! Please contact the system admin for more info at: admin@phomart.com"; 
+	$data = "This module accepts a GET request on the product table only! Please contact the system admin for more info at: admin@phomart.com"; 
 	echo json_encode($data);
 }
 ?>

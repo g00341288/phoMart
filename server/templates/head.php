@@ -22,6 +22,7 @@
   <script src="../client/controllers/homeController.js"></script>
   <script src="../client/controllers/navController.js"></script>
   <script src="../client/controllers/checkoutController.js"></script>
+  <script src="../client/controllers/paymentFormController.js"></script>
   <script src="../client/vanilla/domr.js" defer></script>
   <script src="../client/vanilla/vanillaCartManager.js" defer></script>
 

@@ -24,19 +24,16 @@ angular.module('phoMart.controllers')
 		  */
 		DBService.retrieve('../server/db/retrieveProducts.php?', { params: { table: 'product'}}).then(
 			/**
-			 * Success callback for the DBService.retrieve AJAX call
-			 * to the MySQL DB product table
+			 * Success callback for the DBService.retrieve AJAX call to the MySQL DB product table
 			 * @param  {object} res Response object from AJAX call to PHP server
 			 */
 			function(res){
-				/** @type {array} Add an array of products retrieved from the DB, 
-				to the $scope */
+				/** @type {array} Add an array of products retrieved from the DB, to the $scope */
 				$scope.products = res.data;
 				console.log($scope.products);
 			},
 			/**
-			 * Failure callback for the DBService.retrieve AJAX call
-			 * to the MySQL DB product table
+			 * Failure callback for the DBService.retrieve AJAX call to the MySQL DB product table
 			 * @param  {object} res Response object from AJAX call to PHP server
 			 */ 
 			function(res){
