@@ -15,7 +15,7 @@
 	/** Like include, and require, require_once includes and evaluates a given file.
 	require_once, however, checks first if the file has been included and if not 
 	attempts to do so. dbconnect.php opens a connection to the MySQL server.*/
-	require_once 'dbconnect.php';
+	require_once 'db/config.php';
 	
 	/** Check if the $_SESSION array contains key ('user'). $_SESSION is an associative array 
 	containing session variables on the current script. If it is set, send a raw HTTP 
@@ -82,13 +82,13 @@
 			/** @var Send a MySQL query to get the user id, username, and password from the 
 			user table where the email field matches the given email, and store the returned resource
 			in $res to be manipulated by mysql_fetch_array.*/
-			$res=mysql_query("SELECT user_id, username, password FROM user WHERE email='$email'");
+			$res=mysqli_query($con, "SELECT user_id, username, password FROM user WHERE email='$email'");
 
 			/** @var Fetch the result row */
-			$row=mysql_fetch_array($res);
+			$row=mysqli_fetch_array($res);
 
 			/** @var if the username/password is correct this returns 1 row */
-			$count = mysql_num_rows($res); 
+			$count = mysqli_num_rows($res); 
 			
 			/** @var If the username/password is correct */
 			if( $count == 1 && $row['password']==$password ) {
@@ -98,7 +98,7 @@
 				header("Location: home.php");
 			} else {
 				/** @var Otherwise set $errMSG for presentation in the DOM */
-				$errMSG = "Incorrect Credentials, Try again...";
+				$errMSG = "Incorrect credentials. Please try again...";
 			}
 				
 		}
@@ -121,12 +121,9 @@
 
 			<div id="login-form">
 		    
-		    <form method="post" 
-		    action="<?php 
-		    	/** On submit, go to the given page, the current page if anything went wrong, the home page otherwise */
-		    	echo htmlspecialchars($_SERVER['PHP_SELF']); 
-		    ?>" 
-		    autocomplete="off">
+		    <!-- $_SERVER is an array with information such as headers, paths and script locations, created by 
+		    the server. PHP_SELF identifies the currently executing script. -->
+		    <form method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" autocomplete="off">
 		    	
 		    	<div class="col-md-12">
 
@@ -217,6 +214,12 @@
 		  </div>	
 
 		</div>
+
+		<!-- Include the main site scripts template (script sources)-->
+		<?php include('templates/scripts.php') ?>
+		
+		 <!-- Include the main site footer template -->
+		<?php include('templates/footer.php') ?>
 
 	</body>
 	

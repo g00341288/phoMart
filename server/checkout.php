@@ -99,7 +99,7 @@
                     <td></td>
                     <td></td>
                     <td><em>Total:</em> </td>
-                    <td>{{order.total | currency : "€" }}
+                    <td>{{order.total | currency : "€" }}</td>
                   </tr>
                   <tr>
                     <td style="border: none"></td>
@@ -127,4 +127,11 @@
     </div>
 
   </div>
+
+  <!-- Include the main site scripts template (script sources)-->
+  <?php include('templates/scripts.php') ?>
   
+   <!-- Include the main site footer template -->
+  <?php include('templates/footer.php') ?>
+  
+  </body>

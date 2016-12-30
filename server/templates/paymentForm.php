@@ -18,7 +18,8 @@ In the event that these rules are violated, a hidden DOM element will be exposed
 display a suitable warning and the submit button will be disabled.
 
 Also, it is not possible to enter more than a valid number of digits in the credit 
-card number or cvv inputs. 
+card number or cvv inputs, and the credit card expiry input field will only permit
+dates in the correct format, and no dates in the past are accepted.
 -->
 <section>
 	<div class="container">

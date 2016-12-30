@@ -1,5 +1,10 @@
 <?php
 
+	//TEMPORARY [TODO]
+	// suppress deprecation errors
+	error_reporting( ~E_DEPRECATED & ~E_NOTICE );
+
+
 	// The define() statements set up constants for the 
 	// application representing the host, user, password
 	// and database name for the application. See the 

@@ -21,7 +21,7 @@
 
 	/** Like include, include_once evaluates a given file, but like require_once, 
 	only if it hasn't been included already. */
-	include_once 'dbconnect.php';
+	include_once 'db/config.php';
 
 	/** @var set an error boolean for use in conditional logic later in the script */
 	$error = false;
@@ -82,8 +82,8 @@
 		} else {
 			/** @var Check that the given email exists in the database user table */
 			$query = "SELECT email FROM user WHERE email='$email'";
-			$result = mysql_query($query);
-			$count = mysql_num_rows($result);
+			$result = mysqli_query($con, $query);
+			$count = mysqli_num_rows($result);
 			/** If it doesn't store an error message for use later */
 			if($count!=0){
 				$error = true;
@@ -98,7 +98,7 @@
 			$passError = "Please enter password.";
 		} else if(strlen($pass) < 6) {
 			$error = true;
-			$passError = "Password must have atleast 6 characters.";
+			$passError = "Password must have at least 6 characters.";
 		}
 		
 		// Encrypt using SHA256() hashing algorithm;
@@ -109,8 +109,9 @@
 			
 			/** @var Construct a SQL query to insert the new user into the user table */
 			$query = "INSERT INTO user(username,email,password) VALUES('$name','$email','$password')";
+			
 			/** @var Send the query to the currently active database */
-			$res = mysql_query($query);
+			$res = mysqli_query($con, $query);
 				
 			if ($res) {
 				$errTyp = "success";
@@ -124,7 +125,6 @@
 			}	
 				
 		}
-		
 		
 	}
 ?>
@@ -155,21 +155,21 @@
             	<hr />
             </div>
             
-            <?php
+      <?php
 			if ( isset($errMSG) ) {
 				
 				?>
-				<div class="form-group">
-				<!-- PHP ternary, equivalent to: 
-				if($errTyp == "success")
-					{ echo "success"; } 
-					else { 
-						echo $errTyp; 
-					} -->
-            	<div class="alert alert-<?php echo ($errTyp=="success") ? "success" : $errTyp; ?>">
-				<span class="glyphicon glyphicon-info-sign"></span> <?php echo $errMSG; ?>
-                </div>
-            	</div>
+					<div class="form-group">
+					<!-- PHP ternary, equivalent to: 
+					if($errTyp == "success")
+						{ echo "success"; } 
+						else { 
+							echo $errTyp; 
+						} -->
+	            	<div class="alert alert-<?php echo ($errTyp=="success") ? "success" : $errTyp; ?>">
+					<span class="glyphicon glyphicon-info-sign"></span> <?php echo $errMSG; ?>
+	                </div>
+	            	</div>
                 <?php
 			}
 			?>
@@ -220,6 +220,12 @@
     </div>	
 
 </div>
+
+<!-- Include the main site scripts template (script sources)-->
+<?php include('templates/scripts.php') ?>
+
+ <!-- Include the main site footer template -->
+<?php include('templates/footer.php') ?>
 
 </body>
 </html>
