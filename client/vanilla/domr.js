@@ -93,7 +93,7 @@
 
   /**
    * Close the prototype circle - set the domr.domrm.init prototype
-   * be a reference to domr.domrm, and thereby
+   * be a reference to domr.domrm
    * @type {object}
    */
   domr.domrm.init.prototype = domr.domrm;

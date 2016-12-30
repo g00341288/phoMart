@@ -68,7 +68,7 @@
             $res=mysql_query("SELECT * FROM _order WHERE reference_id='" . $sessionId . "' LIMIT 1;"); 
             $num_rows = mysql_num_rows($res); 
 
-            /** If there is an order for this session... */
+            /** If there is an order for this session */
             if($num_rows > 0){
               // populate the page with the payment form template
               include 'templates/paymentForm.php';
