@@ -5,8 +5,11 @@
  * directives submodules
  * 
  * Dependencies include: 
- *   phoMart.services         (for db transactions, AJAX requests and local storage operations)
- *   phoMart.controllers			(application controllers)
- *   angular-cookies					(Angular module providing a convenient wrapper for reading/writing browser cookies)							
+ * 
+ *   phoMart.services         Angular services for db transactions, AJAX requests, utilities and local storage operations
+ *   phoMart.controllers			Angular controllers for client application
+ *   ngCookies								Angular module providing a convenient wrapper for reading/writing browser cookies							
+ *   angularPayments					Angular module providing directives for formatting and validating payment forms (credit cards etc)
+ *   
  */
 angular.module('phoMart', ['phoMart.services', 'phoMart.controllers', 'ngCookies', 'angularPayments']);

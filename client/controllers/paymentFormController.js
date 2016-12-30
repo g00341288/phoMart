@@ -4,12 +4,15 @@
 angular.module('phoMart.controllers')
 	.controller('PaymentFormController', function($scope, NavCartService, DBService, SessionService){
 
+		/**
+		 * @type {object}	Bind model to view (payment form) and set defaults
+		 */
 		$scope.payment = {
 			firstname: "Firstname",
 			surname: "Surname",
-			creditCardNumber: "Credit Card Number",
-			creditCardCVV: "Credit Card CVV",
-			creditCardExpiry: "Credit Card Expiry Date",
+			creditCardNumber: "4485558974684386",
+			creditCardCVV: "393",
+			creditCardExpiry: "07/2017",
 			addressLine1: "Address Line 1",
 			addressLine2: "Address Line 2",
 			addressLine3: "Address Line 3",

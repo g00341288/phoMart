@@ -1,10 +1,25 @@
-<!-- AngularJS provides some built-in directives for form validation. In this form, any 
-element with the 'required' attribute will cause a validation failure if the rule isn't 
-satisfied. In the event that this validation failure occurs, a message will be displayed
-in the DOM and the submit button will be disabled. The input for credit card CVV number 
-has a rule that ensures a CVV must be at least 3 characters/digits in length. If it is 
-not this will cause a validation failure, a message will be displayed in the DOM and 
-the submit button will be disabled. -->
+<!-- AngularJS provides some built-in directives for form validation, but it does not provide
+credit card number validation. In the payments view, this page, I have used a combination of
+Angular's built-in form validation tools and those supplied by the Angular Payments module: 
+	
+	https://github.com/laurihy/angular-payments
+
+The validation rules are as follows: 
+
+* any field with the 'required' attribute cannot be empty
+* any field with the 'ng-minlength' attribute must be at least ng-minlength long
+* credit card numbers must validate against the Luhn algorithm, a simple checksum
+	formula to minimise common typos, transcription errors, transpositions of adjacent 
+	digits, etc
+* credit card cvv numbers must be at least three characters long and not more than 4
+* 
+
+In the event that these rules are violated, a hidden DOM element will be exposed to
+display a suitable warning and the submit button will be disabled.
+
+Also, it is not possible to enter more than a valid number of digits in the credit 
+card number or cvv inputs. 
+-->
 <section>
 	<div class="container">
 		<div class="row">
@@ -42,42 +57,50 @@ the submit button will be disabled. -->
 				  </div>
 				  <hr>
 				  <div class="form-group">
-				    <label for="creditCardNumber">Credit Card Number</label>
+				    <label for="creditCardNumber">Credit Card Number <span ng-show="payment.creditCardNumber == '4485558974684386'">(Dummy Credit Card Number)</span></label>
 				    <input 
 				    type="text" 
 				    name="creditCardNumber" 
 				    class="form-control" 
 				    id="creditCardNumber" 
-				    placeholder="Credit Card Number"
+				    title="You can delete the dummy credit card number and try your own!"
+				    placeholder="4485558974684386"
 				    ng-model="payment.creditCardNumber" 
+				    payments-validate="card"
+				    payments-format="card"
 				    required>
-				    <div class="alert alert-warning" 
-				    role="alert"
-				    ng-show="paymentForm.creditCardNumber.$error.required">Credit Card Number is required!
-				    </div>
+				    <div class="alert alert-danger" 
+				    role="alert" 
+				    ng-show="paymentForm.creditCardNumber.$invalid">
+    				Error: A valid credit card number is required!
+						</div>
 				  </div>
 				  <div class="form-group">
-				    <label for="creditCardCVV">Credit Card CVV</label>
+				    <label for="creditCardCVV">Credit Card CVV <span ng-show="payment.creditCardCVV == '393'">(Dummy Credit Card CVV)</span></label>
 				    <input 
 				    type="text" 
 				    name="creditCardCVV" 
 				    class="form-control" 
 				    id="creditCardCVV" 
-				    placeholder="Credit Card CVV" 
+				    title="You can delete the dummy CVV number and try your own!"
+				    placeholder="393" 
 				    ng-model="payment.creditCardCVV"
+				    payments-validate="cvc"
+				    payments-format="cvc"
 				    ng-minlength="3"
 				    required>
 				    <div class="alert alert-warning" 
 				    role="alert"
-				    ng-show="paymentForm.creditCardCVV.$error.required">Credit Card CVV Number is required!
-				    </div>
-				    <div class="alert alert-warning" 
-				    role="alert"
 				    ng-show="paymentForm.creditCardCVV.$error.minlength">Credit Card CVV Number must be at least 3 digits long!
 				    </div>
+				    <div class="alert alert-danger" 
+				    role="alert" 
+				    ng-show="paymentForm.creditCardCVV.$invalid">
+    				Error: A valid credit card CVV number is required!
+						</div>
 				  </div>
 				  <div class="form-group">
-				    <label for="creditCardExpiry">Credit Card Expiry Date</label>
+				    <label for="creditCardExpiry">Credit Card Expiry Date <span ng-show="payment.creditCardExpiry == '07/2017'">(Dummy Credit Card Expiry Date)</span></label>
 				    <input 
 				    type="text" 
 				    name="creditCardExpiry" 
@@ -85,11 +108,14 @@ the submit button will be disabled. -->
 				    id="creditCardExpiryDate" 
 				    placeholder="Credit Card Expiry Date" 
 				    ng-model="payment.creditCardExpiry"
+				    payments-validate="expiry"
+				    payments-format="expiry"
 				    required>
-				    <div class="alert alert-warning" 
-				    role="alert"
-				    ng-show="paymentForm.creditCardExpiry.$error.required">Credit Card Expiry Date is required!
-				    </div>
+				    <div class="alert alert-danger" 
+				    role="alert" 
+				    ng-show="paymentForm.creditCardExpiry.$invalid">
+    				Error: A valid credit card expiry date is required!
+						</div>
 				  </div>
 				  <hr>
 				  <div class="form-group">
@@ -197,9 +223,7 @@ the submit button will be disabled. -->
 				    ng-show="paymentForm.mobile.$error.required">Mobile Number is required!
 				    </div>
 				  </div>
-				  <button type="submit" 
-				  class="btn btn-default"
-				  ng-disabled="paymentForm.$invalid">Submit</button>
+				  <button type="submit" class="btn btn-default" ng-disabled="paymentForm.$invalid">Submit</button>
 				</form> 
 			</div>
 			</div>
