@@ -25,7 +25,8 @@
   "devDependencies": {
     "angular": "^1.6.0",
     "font-awesome": "Font-Awesome#4.3.0",
-    "angular-cookies": "^1.6.0"
+    "angular-cookies": "^1.6.0",
+    "angular-payments": "*"
   },
   "resolutions": {
     "font-awesome": "4.3.0"

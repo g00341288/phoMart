@@ -9,4 +9,4 @@
  *   phoMart.controllers			(application controllers)
  *   angular-cookies					(Angular module providing a convenient wrapper for reading/writing browser cookies)							
  */
-angular.module('phoMart', ['phoMart.services', 'phoMart.controllers', 'ngCookies']);
+angular.module('phoMart', ['phoMart.services', 'phoMart.controllers', 'ngCookies', 'angularPayments']);
