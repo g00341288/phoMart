@@ -14,13 +14,13 @@
 
   /** Like include, require, and require_once include and evaluate a given file.
   require_once, however, checks first if the file has been included and if not 
-  attempts to do so. dbconnect.php opens a connection to the MySQL server.*/
+  attempts to do so. db/config.php opens a connection to the MySQL server.*/
   require_once 'db/config.php';
   
   /** If session is not set, redirect to the login page (index.php) */
   if( !isset($_SESSION['user']) ) {
     /** Send a raw HTTP header with the given location */
-    header("Location: index.php");
+    header("Location: sign-in.php");
     exit;
   }
   
@@ -30,7 +30,6 @@
   /** @var Fetch the result row */
   $userRow=mysqli_fetch_array($res);
 
-  
 
   /** Get and store session id */
   $sessionId = session_id();
@@ -68,7 +67,7 @@
 
             /** Like include, require, and require_once include and evaluate a given file.
             require_once, however, checks first if the file has been included and if not 
-            attempts to do so. dbconnect.php opens a connection to the MySQL server.*/
+            attempts to do so. db/config.php opens a connection to the MySQL server.*/
             require_once 'db/config.php';
 
             $query = "SELECT * FROM _order WHERE reference_id=" . $sessionId . " LIMIT 1;";

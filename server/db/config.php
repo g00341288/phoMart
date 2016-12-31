@@ -1,7 +1,7 @@
 <?php
 
 	//TEMPORARY [TODO]
-	// suppress deprecation errors
+	// suppress occasional mysqli deprecation errors
 	error_reporting( ~E_DEPRECATED & ~E_NOTICE );
 
 

@@ -13,10 +13,10 @@
 	session_start();
 
 	/** Check if the SESSION array contains key ('user'). This is an associative array 
-	containing session variables 	on the current script. If it is set, send a raw HTTP 
+	containing session variables on the current script. If it is set, send a raw HTTP 
 	header identifying the location, back to the browser.   */
 	if( isset($_SESSION['user'])!="" ){
-		header("Location: home.php");
+		header("Location: index.php");
 	}
 
 	/** Like include, include_once evaluates a given file, but like require_once, 
@@ -211,7 +211,8 @@
 	            </div>
 	            
 	            <div class="form-group">
-	            	<a href="index.php">Sign in Here</a>
+	            	<a href="sign-in.php">Sign in Here</a>
+	            	<a class="pull-right" href="index.php">Browse</a>
 	            </div>
 	        
 	        </div>

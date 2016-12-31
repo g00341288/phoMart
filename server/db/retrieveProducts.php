@@ -9,14 +9,6 @@ if($_SERVER['REQUEST_METHOD'] == 'GET' AND $_GET['table'] == 'product'){
 	/** @var Set the table name */
 	$table = $_GET['table']; 
 
-	/** @var Open a new connection to the MySQL server  */
-	$con = mysqli_connect(DBHOST, DBUSER, DBPASS, DBNAME);
-
-	/** Check connection */
-	if(mysqli_connect_errno()){
-		echo "Failed to connect to DB: " . mysqli_connect_error();
-	}
-
 	/** Set autocommit to off */
 	mysqli_autocommit($con, FALSE); 
 

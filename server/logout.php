@@ -5,16 +5,16 @@
 	*/
 	session_start();
 	
-	/** If the session is set, redirect to index.php */
+	/** If the session user is not set, redirect to sign-in.php */
 	if (!isset($_SESSION['user'])) {
 
 
-		header("Location: index.php");
+		header("Location: sign-in.php");
 
-	/** otherwise redirect to home.php */
+	/** otherwise redirect to index.php */
 	} else if(isset($_SESSION['user'])!="") {
 
-		header("Location: home.php");
+		header("Location: index.php");
 
 	}
 	/** If the user has logged out, */
@@ -34,6 +34,6 @@
 
 
 		/** Send a raw HTTP header identifying the location back to the browser. */
-		header("Location: index.php");
+		header("Location: sign-in.php");
 		exit;
 	}

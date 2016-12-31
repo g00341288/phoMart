@@ -1,5 +1,5 @@
  <!-- Set up responsive navbar -->
-  	<nav class="navbar navbar-default navbar-fixed-top" ng-controller="NavController">
+  	<nav class="navbar navbar-default navbar-fixed-top" ng-controller="NavController" ng-cloak>
 
       <div class="container">
 
@@ -14,7 +14,7 @@
 
           </button>
 
-          <a class="navbar-brand" href="home.php">phoMart</a>
+          <a class="navbar-brand" href="index.php">phoMart</a>
 
         </div>
 
@@ -62,7 +62,13 @@
                   <a href="register.php"><span class="glyphicon glyphicon-user"></span>&nbsp;Register</a>
                 </li>
                 <li>
-                  <a href="logout.php?logout"><span class="glyphicon glyphicon-log-out"></span>&nbsp;Sign Out</a>
+                <?php   /** If session user is not set, display sign in link, otherwise display sign out link */
+                if( !isset($_SESSION['user']) ) {
+                  echo "<a href='sign-in.php'><span class='glyphicon glyphicon-log-in'></span>&nbsp;Sign In</a>";
+                }
+                else {
+                  echo "<a href='logout.php?logout'><span class='glyphicon glyphicon-log-out'></span>&nbsp;Sign Out</a>";
+                }?>
                 </li>
               </ul>
 
