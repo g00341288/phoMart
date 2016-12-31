@@ -22,15 +22,13 @@
 
           <ul class="nav navbar-nav">
 
-            <!-- If the mouse is hovering over the link, an animate.css class is applied to the element
-            to draw the users attention -->
+            <!-- If the current page is about, add the active class -->
             <li class="<?php if(pathinfo($_SERVER['SCRIPT_FILENAME'], PATHINFO_FILENAME) == 'about'){echo 'active'; } ?>" >
-              <a ng-class="{'animated pulse infinite':hovering}" ng-mouseenter="hovering=true" ng-mouseleave="hovering=false" href="about.php">About</a>
+              <a href="about.php">About</a>
             </li>
-            <!-- If the mouse is hovering over the link, an animate.css class is applied to the element
-            to draw the users attention -->
+            <!-- If the current page is contact, add the active class -->
             <li class="<?php if(pathinfo($_SERVER['SCRIPT_FILENAME'], PATHINFO_FILENAME) == 'contact'){echo 'active'; } ?>">
-              <a ng-class="{'animated pulse infinite':hovering}" ng-mouseenter="hovering=true" ng-mouseleave="hovering=false" href="contact.php">Contact</a>
+              <a href="contact.php">Contact</a>
             </li>
             <li>
               <a title="Project Github Repo" href="https://github.com/g00341288/g00341288_LReidy_WAD"><i class="fa fa-lg fa-github"></i></a>
