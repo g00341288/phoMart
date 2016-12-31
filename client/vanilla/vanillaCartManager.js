@@ -130,12 +130,18 @@ $( document ).ready(function(window) {
 		var table = html('table', {id: 'cart', class: 'table table-bordered table-striped'}, thead + tableContents);
 
 		/** @type {string} A div DOM element as string, containing a button DOM element */
-		var div = html('div', {id: 'proceedDiv', class: 'col-md-12'}, html('button', {class: 'proceed btn pull-right'}, 
-			'Proceed') + html('button', 
-			{class: 'continue-shopping btn pull-right'}, 'Continue Shopping'));
+		// var div = html('div', {id: 'proceedDiv', class: 'col-md-12'}, html('button', {class: 'proceed btn pull-right'}, 
+		// 	'Proceed') + html('button', 
+		// 	{class: 'continue-shopping btn pull-right'}, 'Continue Shopping'));
+		var div = html('div', {id: 'proceedDiv', class: 'col-md-12'}, 
+			html('div', {class: 'btn-group pull-right', role:'group', 'aria-label': ''},
+				html('button', {type: 'button', class: 'continue-shopping btn btn-default'}, 'Continue Shopping') +
+				html('button', {type: 'button', class: 'proceed btn btn-default'}, 'Proceed')));
 
 		/** Concatenate the proceed div onto the existing table */
 		table += div; 
+
+		
 
 		return table; 
 		
@@ -267,7 +273,7 @@ $( document ).ready(function(window) {
 
   /** Add an event handler to manage the transition to the order page  */
   $('button.proceed').on('click', function(){ 
-
+  	
   	/** @type {string}	 Get the path to the current file using regular expression*/
   	path = document.location.href.match(/^.*[\\\/]/, '');
 
@@ -277,11 +283,21 @@ $( document ).ready(function(window) {
   		document.location.href = path + 'home.php';
   	}
   	else {
-  		/** @type {string}	 Proceed to checkout */
+  		/** Proceed to checkout */
   		document.location.href = path + 'checkout.php';
   	}
   	
 
   });
+
+  /** Add an event handler to allow the user to return to the home/store page on clicking
+  the 'Continue Shopping' button */
+  $('button.continue-shopping').on('click', function(){
+
+  	/** @type {string}	 Get the path to the current file using regular expression*/
+  	path = document.location.href.match(/^.*[\\\/]/, '');
+  	document.location.href = path + 'home.php';
+  	
+  }); 
 
 });

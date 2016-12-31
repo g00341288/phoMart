@@ -23,17 +23,15 @@
     header("Location: index.php");
     exit;
   }
-  
+
   /** @var Get logged in users details from MySQL user table  */
   $res=mysqli_query($con, "SELECT * FROM user WHERE user_id=".$_SESSION['user']);
 
   /** @var Fetch the result row */
   $userRow=mysqli_fetch_array($res);
 
-  
-
-  /** Get and store session id */
-  $sessionId = session_id();
+  /** Close the connection */
+  mysqli_close($con);
 
 ?>
 
@@ -52,51 +50,34 @@
       
       <div class="row">
         <div class="col-md-12">
-          <h3>Payment Details</h3>
+          <h3>Order Confirmation</h3>
         </div>
       </div>
       
-      <!-- Payment form container row - identify the Angular Controller for the div -->
-      <div id="paymentFormContainer" class="row" ng-controller="PaymentFormController">
+      <!-- Order Confirmation summary here - identify the Angular Controller for the div, and set the user_id property
+      of the order object on the scope of the controller -->
+      <div id="orderConfirmationContainer" class="row" ng-controller="OrderConfirmationController" ng-init="order.user_id=<?php echo $userRow['user_id'];?>">
       
-        <!-- Payment form column -->
         <div class="col-md-12" ng-init="">
+          
+          <div class="alert alert-success" role="alert">
+            Your order has been placed successfully!
+          </div>
 
-        <!-- Display template content conditionally - if the order exists, the payment form is 
-        displayed, otherwise, a warning template is displayed -->
-          <?php 
-
-            /** Like include, require, and require_once include and evaluate a given file.
-            require_once, however, checks first if the file has been included and if not 
-            attempts to do so. dbconnect.php opens a connection to the MySQL server.*/
-            require_once 'db/config.php';
-
-            $query = "SELECT * FROM _order WHERE reference_id=" . $sessionId . " LIMIT 1;";
-
-            /** Check that an order exists for this session! */
-            $res=mysqli_query($con, "SELECT * FROM _order WHERE reference_id='" . $sessionId . "' LIMIT 1;"); 
-            $num_rows = mysqli_num_rows($res); 
-
-            /** If there is an order for this session */
-            if($num_rows > 0){
-              // populate the page with the payment form template
-              include 'templates/paymentForm.php';
-            }
-            else {
-              // populate the page with the warning template
-              include 'templates/paymentFormWarning.php';
-              /** Close the connection */
-              mysqli_close($con);
-              
-            }
-          ?>
+          <div class="panel panel-default">
+            <!-- Default panel contents -->
+            <div class="panel-heading">Thank you for shopping at phoMart!<span class="pull-right">Order ID: {{referenceIds.order_id}}</span></div>
+            <div class="panel-body">
+              <p> Please take note of the reference number below for your records:  </p>
+              <p>Order Reference #: {{orderReferenceNumber}} </p>
+            </div>
+          </div>
 
         </div>
-
       </div>
 
     </div>
-  
+
   </div>
 
   <!-- Include the main site scripts template (script sources)-->
@@ -105,4 +86,4 @@
    <!-- Include the main site footer template -->
   <?php include('templates/footer.php') ?>
   
-</body>
+  </body>

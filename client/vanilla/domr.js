@@ -2,8 +2,9 @@
    * domr v.0.0.0 | Leonard M Reidy
    * A simple library for constructing string representations of 
    * DOM elements to simplify the process of dynamically populating HTML pages. 
-   * The goal of the library is to provide a cleaner JavaScript way to generate
-   * string representations of DOM elements 
+   * The goal of the library is to provide a way to generate string representations 
+   * of DOM elements in JavaScript without getting bogged down in convoluted statements
+   * mixing raw HTML strings and JavaScript.
    * @return {object} domr object
    */
   (function() {

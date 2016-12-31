@@ -42,7 +42,8 @@
   <!-- Include the main site nav template -->
   <?php include('templates/nav.php') ?>
 
-  <div id="wrapper">
+  <!-- Use Angular's ng-cloak directive to prevent flashes of unstyled content -->
+  <div id="wrapper" ng-cloak>
 
     <div class="container">
       
@@ -61,3 +62,12 @@
     </div>
 
   </div>
+
+  <!-- Include the main site scripts template (script sources)-->
+  <?php include('templates/scripts.php') ?>
+  
+   <!-- Include the main site footer template -->
+  <?php include('templates/footer.php') ?>
+  
+  </body>
+  </html>

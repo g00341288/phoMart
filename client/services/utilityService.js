@@ -3,10 +3,14 @@
  */
 function utilityService($http){
 
-  function getDate(){
-    return Date();
-  }
-
+  /**
+   * Given a credit card expiry date, convert it for use by 
+   * PHP server in generating a date type entry to insert
+   * in MySQL table
+   * @param  {string} expiry A string representing credit card expiry date
+   * @return {string}        A string representation of the card expiry date for consumption
+   *                         by PHP server in constructing a date type MySQL db entry
+   */
   function convertExpiry(expiry){
     var month = expiry.split("/")[0];
     var year = expiry.split("/")[1];
@@ -19,6 +23,11 @@ function utilityService($http){
     return expiry;
   }
 
+  /**
+   * Parse the given item as JSON
+   * @param  {string} item String representation of JSON
+   * @return {object}      JavaScript object corresponding to given item
+   */
   function parse(item) {
     return JSON.parse(item);
   }
@@ -67,7 +76,10 @@ function utilityService($http){
   /**
    * Using the revealing module pattern expose a simple API with methods for 
    * working on various problems in the application solution domain, including
-   * checking if an array contains a value [TODO elaborate as needed]
+   * checking if an array contains a value, iterating over localStorage, JSON
+   * parsing localStorage entries, getting the current session id and converting
+   * a credit card expiry date into a form more suitable for consumption by the
+   * PHP server.
    * 
    * This object will be available elsewhere in the application by this name: 
    *
@@ -76,8 +88,10 @@ function utilityService($http){
    * and the relevant methods will be called as follows:
    * 
    * UtilityService.contains(value, array)
+   * UtilityService.convertExpiry(expiry)
    * UtilityService.each(match, collection, callback, params)
    * UtilityService.getSessionId()
+   * UtilityService.parse(item)
    *
    */
   return {
@@ -85,7 +99,6 @@ function utilityService($http){
     convertExpiry: convertExpiry,
     each: each, 
     getSessionId: getSessionId, 
-    getDate: getDate,
     parse: parse
   }
 }

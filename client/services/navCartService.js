@@ -3,7 +3,7 @@
  * This is essential because the controller that manages the navbar and 
  * the controller that manages the rest of the home page are distinct 
  * and there is no straightforward way to share information between 
- * those controllers outside of a service. This service exploits the 
+ * those controllers outside of a service. This service exploits 
  * AngularJS lifecycle events to bind data in the
  * navbar (in one controller: NavController) to changes in a service modified by 
  * another controller (HomeController). 

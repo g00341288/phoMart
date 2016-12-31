@@ -31,7 +31,7 @@ angular.module('phoMart.controllers')
 		}
 
 		/** Subscribe to the NavCartService to listen for events in the HomeController that
-		affect the cart quantity displayed in the navbar - increment the cart analogue in the
+		affect the cart quantity displayed in the navbar - increment the cart quantity in the
 		current scope to ensure the nav view keeps pace with the view content the HomeController
 		is responsible for */
 		NavCartService.subscribe($scope, function somethingChanged(){

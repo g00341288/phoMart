@@ -43,7 +43,8 @@
   <!-- Include the main site nav template -->
   <?php include('templates/nav.php') ?>
 
-  <div id="wrapper">
+  <!-- Use Angular's ng-cloak directive to prevent flashes of unstyled content -->
+  <div id="wrapper" ng-cloak>
 
     <div class="container">
       
@@ -53,7 +54,7 @@
         </div>
       </div>
       
-      <!-- Order summary here - identify the Angular Controller for the div, and set the user_id property
+      <!-- Checkout summary here - identify the Angular Controller for the div, and set the user_id property
       of the order object on the scope of the controller -->
       <div id="orderContainer" class="row" ng-controller="CheckoutController" ng-init="order.user_id=<?php echo $userRow['user_id'];?>">
       
@@ -85,7 +86,7 @@
                   <th>Subtotal</th>
                 </thead>
                 <tbody>
-                  <tr ng-repeat="item in order.items">
+                  <tr ng-repeat="item in order.items track by $index">
                     <td>
                       <a href="home.php">
                         <img class="img-thumbnail" title="{{item.additional_features}}" src="{{item.image_0}}" style="width: 60px; height: auto">
@@ -102,17 +103,17 @@
                     <td>{{order.total | currency : "€" }}</td>
                   </tr>
                   <tr>
-                    <td style="border: none"></td>
-                    <td style="border: none"></td>
-                    <td style="border: none"><em>VAT(at {{(order.vatRate)*100}}%):</em></td>
-                    <td style="border: none">{{order.total * order.vatRate | currency : "€"}}</td>
+                    <td class="no-border" style="border: none"></td>
+                    <td class="no-border" style="border: none"></td>
+                    <td class="no-border" style="border: none"><em>VAT(at {{(order.vatRate)*100}}%):</em></td>
+                    <td class="no-border" style="border: none">{{order.total * order.vatRate | currency : "€"}}</td>
                   </tr>
 
                   <tr>
-                    <td style="border: none"></td>
-                    <td style="border: none"></td>
-                    <td style="border: none"><em>Grand Total:</em></td>
-                    <td style="border: none">{{getTotalPlusVat(order.total, order.vatRate) | currency : "€"}}</td>
+                    <td class="no-border" style="border: none"></td>
+                    <td class="no-border" style="border: none"></td>
+                    <td class="no-border" style="border: none"><em>Grand Total:</em></td>
+                    <td class="no-border" style="border: none">{{getTotalPlusVat(order.total, order.vatRate) | currency : "€"}}</td>
                   </tr>
                 </tbody>
 

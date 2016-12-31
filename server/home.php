@@ -12,26 +12,31 @@
    */
 	session_start();
 
-  /** Like include, require, and require_once include and evaluate a given file.
-  require_once, however, checks first if the file has been included and if not 
-  attempts to do so. dbconnect.php opens a connection to the MySQL server.*/
-	require_once 'db/config.php';
+  
 	
-	/** If session is not set, redirect to the login page (index.php) */
-	if( !isset($_SESSION['user']) ) {
-    /** Send a raw HTTP header with the given location */
-		header("Location: index.php");
-		exit;
+	/** If session is set ... */
+	if( isset($_SESSION['user']) ) {
+
+    /** Like include, require, and require_once include and evaluate a given file.
+    require_once, however, checks first if the file has been included and if not 
+    attempts to do so. dbconnect.php opens a connection to the MySQL server.*/
+    require_once 'db/config.php';
+
+    /** @var Get logged in users details from MySQL user table  */
+    $res=mysqli_query($con, "SELECT * FROM user WHERE user_id=".$_SESSION['user']);
+
+    /** @var Fetch the result row */
+    $userRow=mysqli_fetch_array($res);
+
+    /** Close the connection */
+    mysqli_close($con); 
+   
 	}
+  else {
+    $userRow['username'] = " there!";
+  }
 
-  /** @var Get logged in users details from MySQL user table  */
-	$res=mysqli_query($con, "SELECT * FROM user WHERE user_id=".$_SESSION['user']);
-
-  /** @var Fetch the result row */
-	$userRow=mysqli_fetch_array($res);
-
-  /** Close the connection */
-  mysqli_close($con); 
+  
 ?>
 
   <!-- Include the main site head template -->
@@ -42,7 +47,8 @@
     <!-- Include the main site nav template -->
     <?php include('templates/nav.php') ?>
 
-  	<div id="wrapper">
+    <!-- Use Angular's ng-cloak directive to prevent flashes of unstyled content -->
+  	<div id="wrapper" ng-cloak>
 
     	<div class="container">
         
@@ -54,7 +60,7 @@
           
         <div class="row">
 
-          <!-- Wire up Angular phoMart module -->
+          <!-- Wire up Angular phoMart controller -->
           <div ng-controller="HomeController" >
 
             <div class="container">

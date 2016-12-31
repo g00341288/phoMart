@@ -12,3 +12,8 @@
 #wrapper{
 	padding-top:50px;
 }
+
+/** Angular-specific styling */
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+    display: none !important;
+}

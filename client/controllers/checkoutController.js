@@ -70,7 +70,7 @@ angular.module('phoMart.controllers')
 			user_id, reference_id, and complete flag; (ii) create a record in the _order_product table for
 			each order product; and (iii) create an invoice record in the invoice table. The complete flag on the _order
 			table is set to false while the order is in progress and later set to true when payment and delivery records 
-			have been successfully created. On success, this method sets up a simple payment object in localStorage which
+			have been successfully created. On success, this method sets up a simple order info object in localStorage which
 			the payment view will use to facilitate the queries against the db necessary to set up payment and delivery
 			records. */
 			DBService.create('../server/db/openOrder.php?', 
@@ -98,7 +98,7 @@ angular.module('phoMart.controllers')
 						complete: 'false'
 					}; 
 
-					/** Store payment-relevant data in localStorage for use in payment view */
+					/** Store order-related data in localStorage for use in payment view */
 					localStorage.setItem('phoMartOrder'+localStorage.length, JSON.stringify(phoMartOrderObject)); 
 
 					/** Redirect to payment page */

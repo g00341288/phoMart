@@ -6,6 +6,8 @@
  * client/controllers/checkoutController.js
  * client/controllers/homeController.js
  * client/controllers/navController.js
+ * client/controllers/paymentFormController.js
+ * client/controllers/orderConfirmationController.js
  * 
  * angular.module is used to create, register and retrieve application 
  * modules in an Angular application - all modules are registered with 

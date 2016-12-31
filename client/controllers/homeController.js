@@ -57,6 +57,6 @@ angular.module('phoMart.controllers')
 			$scope.notify();
 			
 		
-		}
+		};
 			
-		});
+	});
