@@ -32,6 +32,9 @@
             <li class="<?php if(pathinfo($_SERVER['SCRIPT_FILENAME'], PATHINFO_FILENAME) == 'contact'){echo 'active'; } ?>">
               <a ng-class="{'animated pulse infinite':hovering}" ng-mouseenter="hovering=true" ng-mouseleave="hovering=false" href="contact.php">Contact</a>
             </li>
+            <li>
+              <a title="Project Github Repo" href="https://github.com/g00341288/g00341288_LReidy_WAD"><i class="fa fa-lg fa-github"></i></a>
+            </li>
           </ul>
 
           <ul class="nav navbar-nav navbar-right">

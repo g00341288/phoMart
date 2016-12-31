@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Dec 31, 2016 at 12:21 PM
+-- Generation Time: Dec 31, 2016 at 10:48 PM
 -- Server version: 10.1.16-MariaDB
 -- PHP Version: 5.6.24
 
@@ -122,7 +122,7 @@ CREATE TABLE `product` (
   `connectivity_gps` varchar(250) DEFAULT NULL,
   `connectivity_infrared` varchar(250) DEFAULT NULL,
   `connectivity_wifi` varchar(250) DEFAULT NULL,
-  `description` varchar(250) DEFAULT NULL,
+  `description` varchar(1000) DEFAULT NULL,
   `display_resolution` varchar(250) DEFAULT NULL,
   `display_size` varchar(250) DEFAULT NULL,
   `display_touchscreen` tinyint(1) DEFAULT NULL,
@@ -148,6 +148,18 @@ CREATE TABLE `product` (
   `added` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `last_modified` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='\n';
+
+--
+-- Dumping data for table `product`
+--
+
+INSERT INTO `product` (`product_id`, `additional_features`, `os`, `ui`, `availability`, `battery_standbytime`, `battery_talktime`, `battery_type`, `camera_flash`, `camera_video`, `camera_primary`, `connectivity_bluetooth`, `connectivity_cell`, `connectivity_gps`, `connectivity_infrared`, `connectivity_wifi`, `description`, `display_resolution`, `display_size`, `display_touchscreen`, `hardware_accelerometer`, `hardware_audiojack`, `hardware_cpu`, `hardware_fmradio`, `hardware_physicalkeyboard`, `hardware_usb`, `image_0`, `image_1`, `image_2`, `image_3`, `image_4`, `name`, `price`, `dimensions_w`, `dimensions_h`, `dimensions_l`, `weight_grams`, `storage_flash`, `storage_ram`, `added`, `last_modified`) VALUES
+(45, 'Front-facing 1.3MP camera', 'Android 2.2', 'Dell Stage', 'T-Mobile', '375 hours', '6 hours', 'Lithium Ion (Li-Ion) (2780 mAH)', 1, 1, '5.0 megapixels', 'Bluetooth 2.1', 'T-mobile HSPA+ @ 2100/1900/AWS/850 MHz', '1', '0', '802.11 b/g', 'Introducing Dell Streak 7. Share photos, videos and movies together. It''s small enough to carry around, big enough to gather around. Android 2.2-based tablet with over-the-air upgrade capability for future OS releases. A vibrant 7-inch, multitouch monstrosity, it''s actually demoralising just how badly designed this piece of crap is. You couldn''t trade it for a packet of cigarettes. It''s the kind of phone a heroin addict carries.', 'WVGA (800 x 480)', '7.0 inches', 1, 1, '3.5mm', 'nVidia Tegra T20', 0, 0, 'USB 2.0', 'img/phones/dell-streak-7.0.jpg', 'img/phones/dell-streak-7.1.jpg', 'img/phones/dell-streak-7.2.jpg', 'img/phones/dell-streak-7.3.jpg', 'img/phones/dell-streak-7.4.jpg', 'Dell Streak 7', '129.99', 199.9, 119.8, 12.4, 450, '16000MB', '512MB', '2016-12-31 13:08:22', '0000-00-00 00:00:00'),
+(46, 'Gorilla Glass display, Dedicated Camera Key, Ring Silence Switch, Swype keyboard.', 'Android 2.2', 'Dell Stage', 'AT&T, KT, T-Mobile', '400 hours', '7 hours', 'Lithium Ion (Li-Ion) (1400 mAH)', 1, 1, '8.0 megapixels', 'Bluetooth 2.1', '850/1900/2100 3G; 850/900/1800/1900 GSM/GPRS/EDGE900/1700/2100 3G; 850/900/1800/1900 GSM/GPRS/EDGE', '1', '0', '802.11 b/g', 'The Venue is the perfect one-touch, Smart Phone providing instant access to everything you love. All of Venue''s features make it perfect for on-the-go students, mobile professionals, dull-witted hipsters, and active social communicators who love style, posturing, and grindingly slow performance, not to mention poor battery life and an incomprehensible warranty. In the words of Kojak, ''Who loves ya baby!''', 'WVGA (800 x 480)', '4.1 inches', 1, 1, '3.5mm', '1 Ghz processor', 0, 0, 'USB 2.0', 'img/phones/dell-venue.0.jpg', 'img/phones/dell-venue.1.jpg', 'img/phones/dell-venue.2.jpg', 'img/phones/dell-venue.3.jpg', 'img/phones/dell-venue.4.jpg', 'Dell Venue', '192.74', 64, 121, 12.9, 164, '1000MB', '512MB', '2016-12-31 13:08:22', '0000-00-00 00:00:00'),
+(47, 'Adobe Flash Player 10, Quadband GSM Worldphone, Advance Business Security, Complex Password Secure, \n	Review & Edit Documents with Quick Office, Personal 3G Mobile Hotspot for up to 5 WiFi enabled Devices, \n	Advanced Social Networking brings all soci', 'Android 2.2', '', 'Verizon', '230 hours', '8 hours', 'Lithium Ion (Li-Ion) (1400 mAH)', 1, 1, '5.0 megapixels', 'Bluetooth 2.1', 'WCDMA 850/1900/2100, CDMA 800/1900, GSM 850/900/1800/1900, HSDPA 10.2 Mbps \n        (Category 9/10), CDMA EV-DO Release A, EDGE Class 12, GPRS Class 12, HSUPA 1.8 Mbps', '1', '0', '802.11 b/g/n', 'With Quad Band GSM, the DROID 2 Global can send email and make and receive calls from more than 200 countries. It features an improved QWERTY keyboard, super-fast 1.2 GHz processor and enhanced security for all your business needs. But, because you''ve bought it for inscrutable hipster reasons, with no regard for the specs, it will grossly disappoint you, your friends and your loved ones, idlers at the dole office, and other strangers.', 'FWVGA (854 x 480)', '3.7 inches', 1, 1, '3.5mm', '1.2 GHz TI OMAP', 0, 1, 'USB 2.0', 'img/phones/droid-2-global-by-motorola.0.jpg', 'img/phones/droid-2-global-by-motorola.1.jpg', 'img/phones/droid-2-global-by-motorola.2.jpg', 'img/phones/droid-2-global-by-motorola.0.jpg', '', 'DROID 2 Global', '159.75', 60.5, 116.3, 13.7, 169, '8192MB', '512MB', '2016-12-31 13:08:22', '0000-00-00 00:00:00'),
+(48, 'Multiple messaging options, including text with threaded messaging for organized, \n  easy-to-follow text; Social Community support, including Facebook and MySpace; \n  Next generation Address book; Visual Voice Mail, 3.0 megapixel camera, and more', 'Android 2.2', 'MOTOBLUR', 'AT&T', '400 hours', '5 hours', 'Lithium Ion (Li-Ion) (1930 mAH)', 1, 1, '3.0 megapixels', 'Bluetooth 2.1', 'WCDMA 850/1900/2100, GSM 850/900/1800/1900, HSDPA 14Mbps (Category 10) Edge Class 12, \n   GPRS Class 12, eCompass, AGPS', '1', '0', '802.11 a/b/g/n', 'Motorola Atrix 4G gives you dual-core processing power and the revolutionary webtop application. With webtop and a compatible Motorola docking station, sold separately, you can surf the Internet with a full Firefox browser, create and edit messages, emails, dumb-ass selfies, notes about nothing, to no-one, for no reason! Just buy it, ok!', 'QHD (960 x 540)', '4.0 inches', 1, 1, '3.5mm', '1 GHz Dual Core', 0, 1, 'USB 2.0', 'img/phones/motorola-atrix-4g.0.jpg', 'img/phones/motorola-atrix-4g.1.jpg', 'img/phones/motorola-atrix-4g.2.jpg', 'img/phones/motorola-atrix-4g.3.jpg', '', 'Motorola Atrix 4G', '272.77', 63.5, 117.75, 10.95, 135, '8192MB', '1024MB', '2016-12-31 13:08:22', '0000-00-00 00:00:00'),
+(49, '3.2 Full touch screen with Advanced anti smudge, anti \n  reflective and anti scratch glass; Swype text input for easy and fast message creation; \n  multiple messaging options, including text with threaded messaging for organized, \n  easy-to-follow te', 'Android 2.1', 'TouchWiz', 'Cellular South', '800 hours', '7 hours', 'Nickel Cadmium (NiCd) (1500 mAH)', 1, 1, '3.0 megapixels', 'Bluetooth 3.0', '3G/CDMA : 850MHz/1900MHz', '1', '0', '802.11 b/g', 'The Samsung Gem maps a route to a smarter mobile experience. By pairing one of the fastest processors in the category with the Android platform, the Gem delivers maximum multitasking speed and social networking capabilities to let you explore the dreadful existential nightmare that is your abysmal life!', 'WQVGA (400 x 240)', '3.2 inches', 1, 1, '3.5mm', '800 MHz', 0, 1, 'USB 2.0', 'img/phones/samsung-gem.0.jpg', 'img/phones/samsung-gem.1.jpg', 'img/phones/samsung-gem-2.jpg', 'img/phones/samsung-gem-2.jpg', '', 'Samsung Gem', '169.80', 55.5, 113, 12.4, 110, '1024MB', '1024MB', '2016-12-31 13:08:22', '0000-00-00 00:00:00'),
+(50, 'Contour Display, Near Field Communications (NFC), \n  Three-axis gyroscope, Anti-fingerprint display coating, Internet Calling support \n  (VoIP/SIP)', 'Android 2.3', 'Android', 'O2, Orange, Vodafone', '428 hours', '6 hours', 'Lithium Ion (Li-Ion) (1500 mAH)', 1, 1, '5.0 megapixels', 'Bluetooth 2.1', '3GQuad-band GSM: 850, 900, 1800, 1900 Tri-band HSPA: 900, 2100, \n        1700 HSPA type: HSDPA (7.2Mbps) HSUPA (5.76Mbps)', '1', '0', '802.11 b/g/n', 'Nexus S is the next generation of Nexus devices, co-developed by Google and Samsung. The latest Android platform (Gingerbread), paired with a 1 GHz Hummingbird processor and 16GB of memory, makes Nexus S one of the fastest phones on the hipster market, making it slower than the average consumer grade handset. What''s wrong with you?', 'WVGA (800 x 480)', '4.0 inches', 1, 1, '3.5mm', '1GHz Cortex A8 (Hummingbird) processor', 0, 0, 'USB 2.0', 'img/phones/nexus-s.0.jpg', 'img/phones/nexus-s.1.jpg', 'img/phones/nexus-s.2.jpg', 'img/phones/nexus-s.3.jpg', '', 'Nexus S', '372.79', 63, 123.9, 10.88, 129, '16384MB', '1024MB', '2016-12-31 13:08:22', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -297,27 +309,27 @@ ALTER TABLE `contact`
 -- AUTO_INCREMENT for table `delivery`
 --
 ALTER TABLE `delivery`
-  MODIFY `delivery_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `delivery_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 --
 -- AUTO_INCREMENT for table `invoice`
 --
 ALTER TABLE `invoice`
-  MODIFY `invoice_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `invoice_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 --
 -- AUTO_INCREMENT for table `payment`
 --
 ALTER TABLE `payment`
-  MODIFY `payment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `payment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 --
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 --
 -- AUTO_INCREMENT for table `user_contact`
 --
@@ -327,12 +339,12 @@ ALTER TABLE `user_contact`
 -- AUTO_INCREMENT for table `_order`
 --
 ALTER TABLE `_order`
-  MODIFY `_order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=72;
+  MODIFY `_order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=77;
 --
 -- AUTO_INCREMENT for table `_order_product`
 --
 ALTER TABLE `_order_product`
-  MODIFY `_order_product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=134;
+  MODIFY `_order_product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=145;
 --
 -- Constraints for dumped tables
 --
