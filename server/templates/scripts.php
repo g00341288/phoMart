@@ -3,6 +3,8 @@
   <script src="../bower_components/angular/angular.js"></script>
   <script src="../client/app.js"></script>
   <script src="../bower_components/angular-cookies/angular-cookies.js"></script>
+  <script src="../bower_components/angular-bootstrap/ui-bootstrap.js"></script>
+  <script src="../bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
   <script src="../client/services.js"></script>
   <script src="../client/services/dbService.js"></script>
   <script src="../client/services/sessionService.js"></script>

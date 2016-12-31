@@ -8,5 +8,6 @@
   <link rel="stylesheet" href="assets/css/bootstrap.min.css" type="text/css"  />
   <link rel="stylesheet" href="style.css" type="text/css" />
   <link rel="stylesheet" href="assets/css/cart.css" type="text/css"/>
+  <link rel="stylesheet" href="../bower_components/angular-bootstrap/ui-bootstrap-csp.css">
 
   </head>

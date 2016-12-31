@@ -1,7 +1,7 @@
 
     <div class="universal-padding"></div>
     <!----------- Footer ------------>
-    <footer class="footer-bs universal-padding">
+    <footer class="footer-bs universal-padding" ng-controller="HomeController">
         <div class="row">
         	<div class="col-md-3 footer-brand animated fadeInLeft">
             	<h2>phoMart</h2>
@@ -11,11 +11,11 @@
         	<div class="col-md-4 footer-nav animated fadeInUp">
             	
             	<div class="col-md-12">
+                    <h4>Site</h4>
                     <ul class="list">
                         <li><a href="#">About</a></li>
                         <li><a href="#">Contact</a></li>
                         <li><a href="https://g00341288.github.io/web-application-development/">Module Website</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
                     </ul>
                 </div>
             </div>
@@ -34,7 +34,7 @@
                     <div class="input-group">
                       <input type="text" class="form-control" placeholder="Search for...">
                       <span class="input-group-btn">
-                        <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
+                        <button uib-popover="{{dynamicPopover.content}}" popover-title="{{dynamicPopover.title}}" class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
                       </span>
                     </div><!-- /input-group -->
                  </p>

@@ -71,3 +71,12 @@
 .universal-padding {
 	padding-top: 50px;
 }
+
+/** ui-bootstrap custom classes */
+.popover-title {
+	background-color: #3c3d41;
+}
+
+.popover-content {
+	color: #3c3d41;
+}

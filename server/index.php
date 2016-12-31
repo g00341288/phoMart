@@ -106,7 +106,7 @@
 
       </div>
         
-        <section style="text-align:center; margin:10px auto;"><p>Designed by <a href="http://enfoplus.net">Prince J. Sargbah</a></p></section>>
+        
     </div>
     
     <!-- Include the main site scripts template (script sources)-->

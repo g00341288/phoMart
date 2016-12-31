@@ -2,7 +2,14 @@
  * Define a controller to manage the home view (home.php)
  */
 angular.module('phoMart.controllers')
-	.controller('HomeController', function($scope, NavCartService, DBService, SessionService){
+	.controller('HomeController', function($scope, $sce, NavCartService, DBService, SessionService){
+
+		/** @type {object} Angular UI Bootstrap Popover content */
+		$scope.dynamicPopover = {
+			title: 'Search',
+			content: 'Currently unavailable!'
+			 
+		};
 
 		console.log('HomeController triggered');
 
