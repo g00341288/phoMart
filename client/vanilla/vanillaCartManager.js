@@ -131,7 +131,8 @@ $( document ).ready(function(window) {
 
 		/** @type {string} A div DOM element as string, containing a button DOM element */
 		var div = html('div', {id: 'proceedDiv', class: 'col-md-12'}, html('button', {class: 'proceed btn pull-right'}, 
-			'Proceed'));
+			'Proceed') + html('button', 
+			{class: 'continue-shopping btn pull-right'}, 'Continue Shopping'));
 
 		/** Concatenate the proceed div onto the existing table */
 		table += div; 

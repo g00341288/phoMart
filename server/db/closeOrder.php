@@ -6,12 +6,6 @@ include('config.php');
 /** @var Construct and store current timestamp  */
 $timestamp = date('Y-m-d G:i:s');
 
-/** @var Construct and store payment due date */
-$payment_due_date = date('Y-m-d H:i:s', strtotime('+24 hours')); 
-
-/** @var Deductions default to 0 for now - in the future this may change */
-$deductions = 0; 
-
 /** Get and decode JSON data from AJAX request in a format suitable for consumption by PHP */
 $json_input = file_get_contents('php://input');
 
@@ -19,72 +13,72 @@ if($json_input){
 	$_REQUEST = json_decode($json_input, true);
 }
 
-/** If the request is a POST request, and the table parameter is equal to '_order' */
-if($_SERVER['REQUEST_METHOD'] == 'POST' AND $_REQUEST['params']['table'] == '_order'){
+/** If the request is a POST request, and the table parameter is equal to 'payment' */
+if($_SERVER['REQUEST_METHOD'] == 'POST' AND $_REQUEST['params']['table'] == 'payment'){
 
 	/** @var Set variables from request params to pass to MySQL queries  */
-	$table = '_order';
-	$items = json_decode(stripslashes($_REQUEST['params']['items']));
-	$user_id = $_REQUEST['params']['user_id']; 
-	$reference_id = $_REQUEST['params']['reference_id'];
-	$complete = $_REQUEST['params']['complete'];
-	$vat = $_REQUEST['params']['vat'];
-	$subtotal = $_REQUEST['params']['subtotal'];
-	$total = $_REQUEST['params']['total'];
+	$table = $_REQUEST['params']['table'];
+	$order_id = $_REQUEST['params']['_order_id'];
+	$invoice_id = $_REQUEST['params']['invoice_id'];
+	$amount = $_REQUEST['params']['amount'];
+	$payment_method = $_REQUEST['params']['payment_method'];
+	$authorised = $_REQUEST['params']['authorised'];
+	$delivery_firstname = $_REQUEST['params']['delivery_firstname'];
+	$delivery_surname = $_REQUEST['params']['delivery_surname'];
+	$addr_line1 = $_REQUEST['params']['addr_line1'];
+	$addr_line2 = $_REQUEST['params']['addr_line2'];
+	$addr_line3 = $_REQUEST['params']['addr_line3'];
+	$city = $_REQUEST['params']['city'];
+	$cnty = $_REQUEST['params']['cnty'];
+	$zip = $_REQUEST['params']['zip'];
+	$tel = $_REQUEST['params']['tel'];
+	$mobile = $_REQUEST['params']['mobile'];
 	$added = $timestamp;
-
-	/** @var Open and store a new connection to the MySQL server  */
-	$con = mysqli_connect(DBHOST, DBUSER, DBPASS, DBNAME);
-
-	/** Check connection */
-	if(mysqli_connect_errno()){
-		echo "Failed to connect to DB: " . mysqli_connect_error();
-	}
 
 	/** Set autocommit to off */
 	mysqli_autocommit($con, FALSE); 
 
-		/** @var Construct and store SQL query for _order INSERT query */
-	$sql_insert_order = "INSERT INTO " . $table . "(user_id, reference_id, complete, added) " . "VALUES(" . $user_id . ", '" . $reference_id . "', '" . $complete . "', '" . $added . "');";
+		/** @var Construct and store SQL query for payment table INSERT query */
+	$sql_insert_payment = "INSERT INTO payment(invoice_id, amount, payment_method, authorised, added) VALUES(" . $invoice_id . ", " . $amount . ", '" . $payment_method . "', '" . $authorised . "', '" . $added . "');" ;
 
-	/** @var Construct and store SQL query to retrieve order id of recently created order */
-	$sql_select_order_id = "SELECT _order_id FROM _order WHERE reference_id = '" . $reference_id . "' LIMIT 1;"; 
+	/** Execute INSERT query on payment table with given params*/
+	mysqli_query($con, $sql_insert_payment); 
 
-	/** Execute insert query on _order table with given params*/
-	mysqli_query($con, $sql_insert_order); 
+	/** @var Construct and store SQL query for payment table SELECT query */
+	$sql_select_payment_id = "SELECT payment_id FROM payment WHERE invoice_id = " . $invoice_id . ";";
 
-	/** @var Retrieve order_id of recently created order  */
-	$res = mysqli_query($con, $sql_select_order_id);
+	/** @var Retrieve payment_id of recently created payment record */
+	$res = mysqli_query($con, $sql_select_payment_id);
 	$res = mysqli_fetch_object($res);
-	$order_id = $res->_order_id;
+	$payment_id = $res->payment_id;
 
-	/** Iterate over $items array and perform an INSERT query against the _order_products table for each item */
-	foreach($items as &$value){
-		
-		mysqli_query($con, "INSERT INTO _order_product(_order_id, product_id, qty, added) VALUES(" . $order_id .", " . $value .", " . 1 .", '" . $added ."');");
-	}
-
-	/** Construct and store SQL query to insert new invoice record into invoice table */
-	$sql_insert_invoice = "INSERT INTO invoice(_order_id, payment_due_date, vat, deductions, subtotal, total, added) VALUES(" . $order_id . ", '" . $payment_due_date . "', " . $vat . ", " . $deductions . ", " . $subtotal . ", " . $total . ", '" . $added . "');"; 
+	/** Construct and store SQL query to insert new delivery record into delivery table */
+	$sql_insert_delivery = "INSERT INTO delivery(_order_id, delivery_firstname, delivery_surname, addr_line1, addr_line2, addr_line3, city, cnty, zip, tel, mobile, added) VALUES(" . $order_id . ", '" . $delivery_firstname . "', '" . $delivery_surname . "', '" . $addr_line1 . "', '" . $addr_line2 . "', '" . $addr_line3 . "', '" . $city . "', '" . $cnty . "', '" . $zip . "', '" . $tel . "', '" . $mobile . "', '" . $added ."'); "; 
 	
-	/** @var string Construct and store SQL query to get all invoices where the _order_id is equal to the current order */
-	$sql_select_invoice_id = "SELECT * FROM invoice WHERE _order_id = " . $order_id . " LIMIT 1"; 
+	/** Execute insert query on delivery table with given params */
+	mysqli_query($con, $sql_insert_delivery); 
 
-	/** Execute insert query on invoice table with given params */
-	mysqli_query($con, $sql_insert_invoice); 
+	/** Construct and store SQL query to retrieve delivery_id of recently created delivery record */
+	$sql_select_delivery_id = "SELECT delivery_id FROM delivery WHERE _order_id = " . $order_id;
 
-	/** @var Retrieve invoice_id of recently created invoice */
-	$res = mysqli_query($con, $sql_select_invoice_id);
+	/** @var Retrieve delivery_id of recently created delivery record */
+	$res = mysqli_query($con, $sql_select_delivery_id);
 	$res = mysqli_fetch_object($res);
-	$invoice_id = $res->invoice_id; 
+	$delivery_id = $res->delivery_id; 
+
+	/** Construct and store SQL query to update _order table to reflect the status of the order (closed) */
+	$sql_update_order = "UPDATE _order SET complete = true WHERE _order_id = " . $order_id;
+
+	/** Execute update query on _order table with given params */
+	mysqli_query($con, $sql_update_order);
 
 	/** @var Set an array with basic data associated with the transaction to send back to AJAX requestor */
-	$data_arr = array('transaction' => 'committed', '_order_id' => $order_id, 'invoice_id' => $invoice_id);
+	$data_arr = array('transaction' => 'committed', 'order' => 'closed', '_order_id' => $order_id, 'invoice_id' => $invoice_id, 'payment_id' => $payment_id, 'delivery_id' => $delivery_id);
 
 	/** Commit the transaction */
 	mysqli_commit($con);
 
-	/** Return a json string representation of an object with basic data associated with the transaction*/
+	/** Return a json string representation of an object with basic data associated with the transaction */
 	echo json_encode($data_arr); 
 
 	/** Close the connection */

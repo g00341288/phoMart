@@ -89,7 +89,7 @@ angular.module('phoMart.controllers')
 
 					console.log(res); 	
 
-					var phoMartPaymentObject = {
+					var phoMartOrderObject = {
 						user_id: $scope.order.user_id, 
 						order_id: res.data._order_id,
 						invoice_id: res.data.invoice_id,
@@ -99,7 +99,7 @@ angular.module('phoMart.controllers')
 					}; 
 
 					/** Store payment-relevant data in localStorage for use in payment view */
-					localStorage.setItem('phoMartPayment'+localStorage.length, JSON.stringify(phoMartPaymentObject)); 
+					localStorage.setItem('phoMartOrder'+localStorage.length, JSON.stringify(phoMartOrderObject)); 
 
 					/** Redirect to payment page */
 					window.location.href="payment.php";

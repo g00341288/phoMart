@@ -7,6 +7,18 @@ function utilityService($http){
     return Date();
   }
 
+  function convertExpiry(expiry){
+    var month = expiry.split("/")[0];
+    var year = expiry.split("/")[1];
+    var day = "01";
+    expiry = new Date(month+"/"+day+"/"+year);
+    month = expiry.getMonth()+1;
+    year = expiry.getFullYear();
+    day = expiry.getDate();
+    expiry = day + "/" + month + "/" + year; 
+    return expiry;
+  }
+
   function parse(item) {
     return JSON.parse(item);
   }
@@ -70,6 +82,7 @@ function utilityService($http){
    */
   return {
     contains: contains,
+    convertExpiry: convertExpiry,
     each: each, 
     getSessionId: getSessionId, 
     getDate: getDate,

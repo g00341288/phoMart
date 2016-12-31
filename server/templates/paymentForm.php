@@ -1,5 +1,5 @@
 <!-- AngularJS provides some built-in directives for form validation, but it does not provide
-credit card number validation. In the payments view, this page, I have used a combination of
+credit card validation as such. In the payments view, this page, I have used a combination of
 Angular's built-in form validation tools and those supplied by the Angular Payments module: 
 	
 	https://github.com/laurihy/angular-payments
@@ -9,7 +9,7 @@ The validation rules are as follows:
 * any field with the 'required' attribute cannot be empty
 * any field with the 'ng-minlength' attribute must be at least ng-minlength long
 * credit card numbers must validate against the Luhn algorithm, a simple checksum
-	formula to minimise common typos, transcription errors, transpositions of adjacent 
+	formula to offset common typos, transcription errors, transpositions of adjacent 
 	digits, etc
 * credit card cvv numbers must be at least three characters long and not more than 4
 * 
@@ -224,7 +224,7 @@ dates in the correct format, and no dates in the past are accepted.
 				    ng-show="paymentForm.mobile.$error.required">Mobile Number is required!
 				    </div>
 				  </div>
-				  <button type="submit" class="btn btn-default" ng-disabled="paymentForm.$invalid">Submit</button>
+				  <button type="submit" class="btn btn-default" ng-disabled="paymentForm.$invalid" ng-click="submit()">Submit</button>
 				</form> 
 			</div>
 			</div>
