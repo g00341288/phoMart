@@ -39,7 +39,11 @@ angular.module('phoMart.controllers')
 
 		$scope.submit = function(){
 
-
+			/**
+			 * Close order: 
+			 * @param  {[type]} res [description]
+			 * @return {[type]}     [description]
+			 */
 			function success(res){
 				DBService.create('../server/db/closeOrder.php', 
 				{
@@ -61,13 +65,26 @@ angular.module('phoMart.controllers')
 						tel: $scope.payment.telephone,
 						mobile: $scope.payment.mobile
 					}
-				}).then(function(res){console.log(res); }, function(res){console.log(res); });
+				}).then(function(res){
+					/** If the response indicates that the transaction has been committed, 
+					delete the corresponding records in localStorage.  */
+					if(res.data.transaction == "committed"){
+						angular.forEach(localStorage, function(value, key){
+							localStorage.removeItem(key);
+						});
+					}
+
+					/** Finally store an object in localStorage containing key data for order summary/confirmation */
+					localStorage.setItem('phoMartOrderSummary', JSON.stringify(res));
+
+				}, function(res){console.log(res); });
 			}
 
 			function failure(res){
 				console.log(res);
 			}
 
+			/** @type {obect} Update user payment details in user table with AJAX request */
 			DBService.update('../server/db/updateUserPaymentDetails.php?', 
 				{
 					params: {
