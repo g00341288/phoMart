@@ -14,7 +14,7 @@ angular.module('phoMart.controllers')
 			 
 		};
 
-		$scope.revealed = false; 
+		$scope.revealed = true; 
 
 		$scope.reveal = function(){
 			$scope.revealed = !$scope.revealed;

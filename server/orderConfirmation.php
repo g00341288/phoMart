@@ -76,8 +76,20 @@
         </div>
       </div>
 
-    </div>
+      <div class="text-left" ng-controller="OrderConfirmationController">
+        <div class="row">
+          <div class="col-md-12">
+            <h1>Before you go...</h1>
+            <p class="lead">Why not check out some of our other products?</p>
+            
+          </div>
+          <div class="col-md-2 animated fadeInRight" ng-repeat="item in products | limitTo:6">
+          <a href="index.php"><img class="img img-thumbnail" src="{{item.image_1}}" alt="Image of {{item.name}}"></a>
+          </div>
+        </div>
+      </div>
 
+    </div>
   </div>
 
   <!-- Include the main site scripts template (script sources)-->
@@ -87,3 +99,5 @@
   <?php include('templates/footer.php') ?>
   
   </body>
+  </html>
+  <?php ob_end_flush(); 

@@ -72,7 +72,7 @@
 
                 <div class="col-sm-6 col-md-4" ng-switch on="$parent.revealed">
 
-                  <div class="thumbnail animate-switch" ng-switch-when="true">
+                  <div class="thumbnail animated fadeOut flipInY" ng-switch-when="true">
                     <img src="{{ product.image_0 }}" alt="Image of {{product.name}}">
                     <div class="caption">
 
@@ -89,7 +89,7 @@
                     </div>
                   </div>
 
-                  <div class="thumbnail animate-switch" ng-switch-when="false">
+                  <div class="thumbnail animated fadeIn flipInY" ng-switch-when="false">
 
                     <div class="row">
                       <div class="col-md-4">

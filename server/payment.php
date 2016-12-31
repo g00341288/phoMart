@@ -105,3 +105,5 @@
   <?php include('templates/footer.php') ?>
   
 </body>
+</html>
+<?php ob_end_flush(); 

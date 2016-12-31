@@ -12,4 +12,10 @@
  *   angularPayments					Angular module providing directives for formatting and validating payment forms (credit cards etc)
  *   
  */
-angular.module('phoMart', ['phoMart.services', 'phoMart.controllers', 'ngCookies', 'angularPayments', 'ui.bootstrap']);
+angular.module('phoMart', [
+	'phoMart.services', 
+	'phoMart.controllers', 
+	'ngCookies', 
+	'angularPayments', 
+	'ui.bootstrap'
+]);

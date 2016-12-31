@@ -130,9 +130,6 @@ $( document ).ready(function(window) {
 		var table = html('table', {id: 'cart', class: 'table table-bordered table-striped'}, thead + tableContents);
 
 		/** @type {string} A div DOM element as string, containing a button DOM element */
-		// var div = html('div', {id: 'proceedDiv', class: 'col-md-12'}, html('button', {class: 'proceed btn pull-right'}, 
-		// 	'Proceed') + html('button', 
-		// 	{class: 'continue-shopping btn pull-right'}, 'Continue Shopping'));
 		var div = html('div', {id: 'proceedDiv', class: 'col-md-12'}, 
 			html('div', {class: 'btn-group pull-right', role:'group', 'aria-label': ''},
 				html('button', {type: 'button', class: 'continue-shopping btn btn-default'}, 'Continue Shopping') +
@@ -280,7 +277,7 @@ $( document ).ready(function(window) {
   	/** If the cart is empty, redirect to home page, otherwise, proceed to checkout */
   	if(retrieveCartItemsFromLocalStorage(getSessionId(), localStorage, parse).length <= 0){
   		alert('Cart is empty! Redirecting to home page');
-  		document.location.href = path + 'home.php';
+  		document.location.href = path + 'index.php';
   	}
   	else {
   		/** Proceed to checkout */
@@ -296,7 +293,7 @@ $( document ).ready(function(window) {
 
   	/** @type {string}	 Get the path to the current file using regular expression*/
   	path = document.location.href.match(/^.*[\\\/]/, '');
-  	document.location.href = path + 'home.php';
+  	document.location.href = path + 'index.php';
   	
   }); 
 

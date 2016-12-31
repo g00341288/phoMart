@@ -8,18 +8,18 @@
                 <p>Thank you for shopping at phoMart. Our business philosophy revolves around providing dated mobile handsets to discerning hipsters in a mildly ironic way. If you are looking for something and you didn't find it here please don't hesitate to reach out.</p>
                 <p>© 2016 phoMart LLC - All rights reserved</p>
             </div>
-        	<div class="col-md-4 footer-nav animated fadeInUp">
+        	<div class="col-md-4 footer-nav animated fadeInLeft">
             	
             	<div class="col-md-12">
                     <h4>Site</h4>
                     <ul class="list">
-                        <li><a href="#">About</a></li>
-                        <li><a href="#">Contact</a></li>
+                        <li><a href="about.php">About</a></li>
+                        <li><a href="contact.php">Contact</a></li>
                         <li><a href="https://g00341288.github.io/web-application-development/">Module Website</a></li>
                     </ul>
                 </div>
             </div>
-        	<div class="col-md-2 footer-social animated fadeInDown">
+        	<div class="col-md-2 footer-social animated fadeInLeft">
             	<h4>Follow Us</h4>
             	<ul>
                 	<li><a href="#">Facebook</a></li>
@@ -27,7 +27,7 @@
                 	<li><a href="#">Instagram</a></li>
                 </ul>
             </div>
-        	<div class="col-md-3 footer-ns animated fadeInRight">
+        	<div class="col-md-3 footer-ns animated fadeInLeft">
             	<h4>Search</h4>
                 <p>You won't find much here beyond a dumb pop-up to tell you that you won't find anything!</p>
                 <p>
