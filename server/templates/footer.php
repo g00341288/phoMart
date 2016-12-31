@@ -1,6 +1,5 @@
-
+<!-- Footer partial -->
     <div class="universal-padding"></div>
-    <!----------- Footer ------------>
     <footer class="footer-bs universal-padding" ng-controller="HomeController">
         <div class="row">
         	<div class="col-md-3 footer-brand animated fadeInLeft">
@@ -29,14 +28,16 @@
             </div>
         	<div class="col-md-3 footer-ns animated fadeInLeft">
             	<h4>Search</h4>
-                <p>You won't find much here beyond a dumb pop-up to tell you that you won't find anything!</p>
+                <p>You won't find much here beyond a popobrt to tell you that the service is unavailable!</p>
                 <p>
+                    <!-- The input-group below exploits Angular Bootstrap's dynamic popover's to alert the
+                    user that the search function is not currently available -->
                     <div class="input-group">
                       <input type="text" class="form-control" placeholder="Search for...">
                       <span class="input-group-btn">
                         <button uib-popover="{{dynamicPopover.content}}" popover-title="{{dynamicPopover.title}}" class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
                       </span>
-                    </div><!-- /input-group -->
+                    </div>
                  </p>
             </div>
         </div>

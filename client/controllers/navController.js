@@ -1,10 +1,13 @@
 /**
- * Define a controller to manage the home view (home.php)
+ * Define a controller to manage the home view (index.php)
  */
 angular.module('phoMart.controllers')
 	.controller('NavController', function($scope, $rootScope, SessionService, NavCartService){
 
-		console.log('NavController triggered');
+
+		/**------------------------- Controller initialisation ------------------------- */
+
+
 
 		/** @type {string} Retrieve the session id via an AJAX call from SessionService */
 		var sessionId = SessionService.retrieveSessionId('PHPSESSID');
@@ -19,6 +22,12 @@ angular.module('phoMart.controllers')
 		$scope.cart = {
 			quantity: 0
 		};
+
+
+
+
+		/**---------------------- Manage Nav Cart Notification  ----------------------- */
+
 
 		/**
 		 * Check localStorage when the controller fires to determine the number of items

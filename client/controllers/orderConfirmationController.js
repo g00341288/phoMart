@@ -3,24 +3,9 @@
  */
 angular.module('phoMart.controllers')
 	.controller('OrderConfirmationController', function($scope, NavCartService, DBService, SessionService, UtilityService){
-		console.log('OrderConfirmationController triggered!');
-
-
-		/**------------------------------------------- UI Setup  ------------------------------------ */
 		
 
-		/** @type {object} Angular UI Bootstrap Popover content */
-		$scope.dynamicPopover = {
-			title: 'Search',
-			content: 'Still unavailable!'
-			 
-		};
-
-		$scope.revealed = true; 
-
-		$scope.reveal = function(){
-			$scope.revealed = !$scope.revealed;
-		};
+		/**---------------------------- Query the DB to populate the view --------------------------- */
 
 
 		/** @type {array} Make an array available to the $scope to hold products for 
@@ -54,6 +39,11 @@ angular.module('phoMart.controllers')
 			});
 
 		
+
+		/**---------------------- Retrieve Order Summary data from localStorage ------------------------ */
+
+
+
 		/** @type {object} Get and store the phoMartOrderSummary data from localStorage  */
 		var orderRefsObj = UtilityService.each('phoMartOrderSummary', localStorage, UtilityService.parse)[0].data;
 

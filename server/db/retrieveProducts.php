@@ -1,4 +1,10 @@
 <?php
+/**---------------------------------- Retrieve Products from DB  -------------------------------- */
+
+/** This file has responsibility for retrieving product records from the DB and sharing them with 
+an AJAX caller who will populate the home view with that data 
+*/
+
 
 /** Include config.php which contains some basic config info shared by all queries */
 include('config.php');

@@ -1,4 +1,20 @@
 <?php
+/**---------------------------------- Close Order -------------------------------- */
+
+
+/** This file manages the server-side activities associated with closing a phoMart 
+order. To close an order, the following steps must be taken: 
+
+(i) 	Create a payment record;
+(ii) 	Create a delivery record; 
+(iii) Update user payment details in the user table;
+(iv) 	Update the corresponding record in the _order table to flag that the order has been
+			completed or closed. 
+(v) 	Return the associated record ids to the AJAX caller
+
+ */
+
+
 
 /** Include config.php which contains some basic config info shared by all queries */
 include('config.php');

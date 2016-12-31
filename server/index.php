@@ -11,8 +11,6 @@
    * passed via GET or POST request or passed via cookie. 
    */
 	session_start();
-
-  
 	
 	/** If session is set ... */
 	if( isset($_SESSION['user']) ) {
@@ -35,13 +33,13 @@
   else {
     $userRow['username'] = " there!";
   }
-
   
 ?>
 
   <!-- Include the main site head template -->
   <?php include('templates/head.php') ?>
 
+  <!-- The Angular ng-app directive is used to auto-bootstrap an Angular Application -->
   <body ng-app="phoMart">
   
     <!-- Include the main site nav template -->
@@ -60,7 +58,7 @@
           
         <div class="row">
 
-          <!-- Wire up Angular phoMart controller -->
+          <!-- Wire up phoMart Home page AngularJS controller -->
           <div ng-controller="HomeController" >
 
             <div class="container">
@@ -70,6 +68,11 @@
 
                 <div class="clearfix" ng-if="$index % 3 == 0"></div>
 
+                <!-- Angular's ng-switch directive is used to conditionally swap out DOM structure
+                in a template based on a scope expression. When the revealed property is true, 
+                the div block immediately below will display, when it is false, the following 
+                block will display. The revealed property value is toggled by the info button. 
+                Note that this directive creates its own scope, hence the reference to the parent! --> 
                 <div class="col-sm-6 col-md-4" ng-switch on="$parent.revealed">
 
                   <div class="thumbnail animated fadeOut flipInY" ng-switch-when="true">

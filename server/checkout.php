@@ -88,7 +88,7 @@
                 <tbody>
                   <tr ng-repeat="item in order.items track by $index">
                     <td>
-                      <a href="home.php">
+                      <a href="index.php">
                         <img class="img-thumbnail" title="{{item.additional_features}}" src="{{item.image_0}}" style="width: 60px; height: auto">
                       </a>
                     </td>
@@ -103,17 +103,17 @@
                     <td>{{order.total | currency : "€" }}</td>
                   </tr>
                   <tr>
-                    <td class="no-border" style="border: none"></td>
-                    <td class="no-border" style="border: none"></td>
-                    <td class="no-border" style="border: none"><em>VAT(at {{(order.vatRate)*100}}%):</em></td>
-                    <td class="no-border" style="border: none">{{order.total * order.vatRate | currency : "€"}}</td>
+                    <td class="no-border"></td>
+                    <td class="no-border"></td>
+                    <td class="no-border"><em>VAT(at {{(order.vatRate)*100}}%):</em></td>
+                    <td class="no-border">{{order.total * order.vatRate | currency : "€"}}</td>
                   </tr>
 
                   <tr>
-                    <td class="no-border" style="border: none"></td>
-                    <td class="no-border" style="border: none"></td>
-                    <td class="no-border" style="border: none"><em>Grand Total:</em></td>
-                    <td class="no-border" style="border: none">{{getTotalPlusVat(order.total, order.vatRate) | currency : "€"}}</td>
+                    <td class="no-border"></td>
+                    <td class="no-border"></td>
+                    <td class="no-border"><em>Grand Total:</em></td>
+                    <td class="no-border">{{getTotalPlusVat(order.total, order.vatRate) | currency : "€"}}</td>
                   </tr>
                 </tbody>
 

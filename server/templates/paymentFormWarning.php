@@ -1,3 +1,5 @@
+<!-- Conditional payment warning DOM content - this will be raised if the system fails to retrieve
+an order - see payment.php -->
 <section>
 	<div class="container">
 		<div class="row">

@@ -3,14 +3,14 @@
   "authors": [
     "Leonard M Reidy"
   ],
-  "description": "A simple Angular PHP client server web store application",
+  "description": "A simple Angular/PHP client server web store application",
   "main": "client/app.js",
   "keywords": [
     "Angular",
     "PHP"
   ],
   "license": "MIT",
-  "homepage": "server/home.php",
+  "homepage": "server/index.php",
   "private": true,
   "ignore": [
     "**/.*",

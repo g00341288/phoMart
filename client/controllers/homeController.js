@@ -1,5 +1,5 @@
 /**
- * Define a controller to manage the home view (home.php)
+ * Define a controller to manage the home view (index.php)
  */
 angular.module('phoMart.controllers')
 	.controller('HomeController', function($scope, $sce, NavCartService, DBService, SessionService){
@@ -14,8 +14,11 @@ angular.module('phoMart.controllers')
 			 
 		};
 
+		/** @type {boolean} Bound to ng-switch in the view - when true, one div displays, when false 
+		the other */
 		$scope.revealed = true; 
 
+		/** Toggle the revealed property to control visibility of product information in the view */
 		$scope.reveal = function(){
 			$scope.revealed = !$scope.revealed;
 		};
@@ -29,7 +32,14 @@ angular.module('phoMart.controllers')
 		consumption by the view */
 		$scope.products = []; 
 
-		/** Call the DBService retrieve() method to retrieve data from the product table of the application database 
+
+		
+		/**---------------------------- Query the DB to populate the view --------------------------- */
+
+
+
+		/** Call the DBService retrieve() method to retrieve data from the product table of the application 
+		  * database 
 		  * The form of this rather convoluted bit of code is as follows: 
 		  * 
 		  * 	DBService.retrieve(baseUrl, params).then(success, failure); 
@@ -55,6 +65,11 @@ angular.module('phoMart.controllers')
 				console.error(res);
 			});
 
+
+		/**------------------------------- Event handlers --------------------------------- */
+
+
+		/** Set up handler on the $scope for the 'Add to Cart' button in the view  */
 		$scope.addToCart = function(product){
 
 			/** @type {string} Get the PHP session id for this user */

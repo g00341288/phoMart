@@ -1,14 +1,17 @@
 <?php
+/**---------------------------------- Shared config for db-related code -------------------------------- */
 
-	//TEMPORARY [TODO]
-	// suppress occasional mysqli deprecation errors
+
+	/** Suppress occasional mysqli deprecation errors - it is generally 
+	a bad practice to allow error reporting of this kind to leak 
+	into the user experience */
 	error_reporting( ~E_DEPRECATED & ~E_NOTICE );
 
 
-	// The define() statements set up constants for the 
-	// application representing the host, user, password
-	// and database name for the application. See the 
-	// application manual for guidance on setting them!
+	/** The define() statements set up constants for the 
+	application representing the host, user, password
+	and database name for the application. See the 
+	application manual for guidance on setting them! */
 	define('DBHOST', 'localhost');
 	define('DBUSER', 'root');
 	define('DBPASS', '');

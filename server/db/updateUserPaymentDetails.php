@@ -1,4 +1,9 @@
 <?php
+/**---------------------------------- Update User Payment Details -------------------------------- */
+
+/** This file has responsibility for updating the user account payment details in the user table 
+when a user attempts to make a new payment in the context of a phoMart order. */
+
 
 /** Include config.php which contains some basic config info shared by all queries */
 include('config.php');

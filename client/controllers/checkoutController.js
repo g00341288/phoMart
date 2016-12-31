@@ -4,7 +4,6 @@
 angular.module('phoMart.controllers')
 	.controller('CheckoutController', function($scope, $rootScope, DBService, SessionService, UtilityService){
 
-		console.log('CheckoutController triggered');
 
 			/** @type {string} Retrieve the session id via AngularJS $cookies from SessionService */
 		var sessionId = SessionService.retrieveSessionId('PHPSESSID');

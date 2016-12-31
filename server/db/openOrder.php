@@ -1,4 +1,15 @@
 <?php
+/**---------------------------------- Open Order -------------------------------- */
+
+/** This file manages the server-side activities associated with opening a phoMart 
+order. To open an order, the following steps must be taken: 
+
+(i) 	Create an _order record and set the completed flag to false;
+(ii) 	Create an _order_product record for each product in the cart; 
+(iii) Create a new invoice record for the order;
+(iv) 	Return the associated record ids to the AJAX caller
+
+ */
 
 /** Include config.php which contains some basic config info shared by all queries */
 include('config.php');
@@ -32,14 +43,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' AND $_REQUEST['params']['table'] == '_or
 	$subtotal = $_REQUEST['params']['subtotal'];
 	$total = $_REQUEST['params']['total'];
 	$added = $timestamp;
-
-	/** @var Open and store a new connection to the MySQL server  */
-	$con = mysqli_connect(DBHOST, DBUSER, DBPASS, DBNAME);
-
-	/** Check connection */
-	if(mysqli_connect_errno()){
-		echo "Failed to connect to DB: " . mysqli_connect_error();
-	}
 
 	/** Set autocommit to off */
 	mysqli_autocommit($con, FALSE); 

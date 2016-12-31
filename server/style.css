@@ -1,3 +1,4 @@
+/** style.css - phoMart site-wide styles */
 @charset "utf-8";
 
 *{
@@ -16,11 +17,6 @@
 /** Angular-specific styling */
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
     display: none !important;
-}
-
-/** Tables */
-td.no-border {
-	border: none;
 }
 
 /** Footer */
@@ -116,4 +112,9 @@ td.no-border {
 .animate-switch.ng-leave,
 .animate-switch.ng-enter.ng-enter-active {
   top:0;
+}
+
+/** Tables */
+td.no-border {
+	border: none !important;
 }

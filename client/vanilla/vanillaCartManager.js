@@ -1,4 +1,11 @@
 /**
+ * This file contains the code for the cart implementation. The rest of the site makes liberal
+ * use of AngularJS, but it seemed to make more sense to write this module in jQuery to demonstrate
+ * event handling/propagation and dynamic DOM construction in a more transparent way. AngularJS hides
+ * alot of these details away behind one or another framework abstraction!
+ */
+
+/**
  * @type {object}		Create a new domr object outside the scope of jQuery's document.ready()
  * domr is not accessible from within the scope of the document.ready() function
  */
