@@ -4,6 +4,9 @@
 angular.module('phoMart.controllers')
 	.controller('HomeController', function($scope, $sce, NavCartService, DBService, SessionService){
 
+		/**------------------------------------------- UI Setup  ------------------------------------ */
+		
+
 		/** @type {object} Angular UI Bootstrap Popover content */
 		$scope.dynamicPopover = {
 			title: 'Search',
@@ -11,7 +14,11 @@ angular.module('phoMart.controllers')
 			 
 		};
 
-		console.log('HomeController triggered');
+		$scope.revealed = false; 
+
+		$scope.reveal = function(){
+			$scope.revealed = !$scope.revealed;
+		};
 
 		/** Notify all subscribers that a NavCartService event has occurred */
 		$scope.notify = function(){

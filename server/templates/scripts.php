@@ -16,6 +16,7 @@
   <script src="../client/controllers/checkoutController.js"></script>
   <script src="../client/controllers/paymentFormController.js"></script>
   <script src="../client/controllers/orderConfirmationController.js"></script>
+  <script src="../client/controllers/homeModalController.js"></script>
   <script src="../client/vanilla/domr.js" defer></script>
   <script src="../client/vanilla/vanillaCartManager.js" defer></script>
   <script src="../bower_components/angular-payments/lib/angular-payments.js"></script>

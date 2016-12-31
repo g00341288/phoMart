@@ -66,32 +66,63 @@
             <div class="container">
 
               <div ng-repeat="product in products">
+                
 
                 <div class="clearfix" ng-if="$index % 3 == 0"></div>
 
-                <div class="col-sm-4">
+                <div class="col-sm-6 col-md-4" ng-switch on="$parent.revealed">
 
-                  <div class="row">
-                    <div class="center-block" >
-                      <img class="img-responsive" src="{{ product.image_0 }}" alt="Product image" />
+                  <div class="thumbnail animate-switch" ng-switch-when="true">
+                    <img src="{{ product.image_0 }}" alt="Image of {{product.name}}">
+                    <div class="caption">
+
+                      <div>
+                        <h3>{{product.name}}</h3>
+                        <p>{{product.description}}</p>
+                      </div>
+
+                        <p>
+                          <button ng-click="reveal()" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-info-sign"></span></button> 
+                          <button ng-click="addToCart(product)" class="btn btn-default" role="button"><span class="glyphicon glyphicon-shopping-cart"></span>&nbsp;{{ product.price | currency:'€' }}</button>
+                        </p>
+                      
                     </div>
                   </div>
-                    
-                  <div class="row">
 
-                    <div class="col-sm-5">
+                  <div class="thumbnail animate-switch" ng-switch-when="false">
 
-                      <strong>{{ product.name }}</strong>
-
+                    <div class="row">
+                      <div class="col-md-4">
+                        <img class="img img-responsive img-thumbnail" src="{{product.image_1}}" alt="Image of {{product.name}}">
+                      </div>
+                      <div class="col-md-4">
+                        <img class="img img-responsive img-thumbnail" src="{{product.image_2}}" alt="Image of {{product.name}}">
+                      </div>
+                      <div class="col-md-4">
+                        <img class="img img-responsive img-thumbnail" src="{{product.image_3}}" alt="Image of {{product.name}}">
+                      </div>
                     </div>
 
-                    <div class="col-sm-7">
+                    <div class="caption">
 
-                      <h5 class="pull-left">{{ product.price | currency:'€' }}</h5>
-                      <button type="button" class="btn btn-default pull-right" ng-click="addToCart(product)">Add to Cart</button>
+                      <div>
+                        <ul class="list-group">
+                          <li class="list-group-item">Network Availability: {{product.availability}}</li>
+                          <li class="list-group-item">Primary Camera: {{product.camera_primary}}</li>
+                          <li class="list-group-item">Bluetooth: {{product.connectivity_bluetooth}}</li>
+                          <li class="list-group-item">WiFi: {{product.connectivity_wifi}}</li>
+                          <li class="list-group-item">Display Resolution: {{product.display_resolution}}</li>
+                          <li class="list-group-item">Battery Standby Time: {{product.battery_standbytime}}</li>
+                          <li class="list-group-item">Battery Talk Time: {{product.battery_talktime}}</li>
+                        </ul>
+                      </div>
 
-                    </div>
+                        <p>
+                          <button ng-click="reveal()" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-info-sign"></span></button> 
+                          <button ng-click="addToCart(product)" class="btn btn-default" role="button"><span class="glyphicon glyphicon-shopping-cart"></span>&nbsp;{{ product.price | currency:'€' }}</button>
+                        </p>
                       
+                    </div>
                   </div>
 
                 </div>
