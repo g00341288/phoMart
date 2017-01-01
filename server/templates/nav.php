@@ -31,7 +31,7 @@
               <a href="contact.php">Contact</a>
             </li>
             <li>
-              <a title="Project Github Repo" href="https://github.com/g00341288/g00341288_LReidy_WAD"><i class="fa fa-lg fa-github"></i></a>
+              <a title="Project Github Repo" href="https://github.com/g00341288/phoMart"><i class="fa fa-lg fa-github"></i></a>
             </li>
           </ul>
 
