@@ -14,7 +14,7 @@
 	padding-top:50px;
 }
 
-/** Angular-specific styling */
+/** Angular-specific styling - used to cloak flashes of unstyled content*/
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
     display: none !important;
 }

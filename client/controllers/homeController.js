@@ -1,4 +1,4 @@
-/**
+con/**
  * Define a controller to manage the home view (index.php)
  */
 angular.module('phoMart.controllers')
