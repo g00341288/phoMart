@@ -1,4 +1,4 @@
-# g00341288_LReidy_WAD
+# phoMart
 A simple Angular/jQuery PHP online store web application 
 
 ## phoMart is a web application with a basic client-server architecture implemented in AngularJS, jQuery and PHP. 
