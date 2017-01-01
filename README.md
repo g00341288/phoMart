@@ -41,4 +41,4 @@ client-side dependencies execute the following at the command line in the root d
 
 `bower install`
 
-
+Note that this may not be necessary. The bower_components directory is under version control and so the application should work out of the box. But if not, this is a good place to start troubleshooting!
